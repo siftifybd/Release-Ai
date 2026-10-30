@@ -1,0 +1,6 @@
+{
+  "name": "JARVIS",
+  "description": "JARVIS voice assistant with Arc Core HUD, Gemini Live WebSocket interaction, memory management, and smart automation.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}

@@ -1,0 +1,265 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="?attr/themeBg"
+    android:orientation="vertical"
+    android:padding="16dp">
+
+    <!-- Top Action Bar -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:gravity="center_vertical">
+
+        <ImageButton
+            android:id="@+id/btnBackDocAssistant"
+            android:layout_width="44dp"
+            android:layout_height="44dp"
+            android:background="@drawable/bg_jarvis_icon_square"
+            android:src="@drawable/ic_back"
+            app:tint="?attr/themeTextPrimary"
+            android:contentDescription="Back" />
+
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:layout_marginStart="14dp"
+            android:orientation="vertical">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="DOCUMENT &amp; OCR ASSISTANT"
+                android:textColor="?attr/themeTextPrimary"
+                android:textSize="14sp"
+                android:textStyle="bold"
+                android:letterSpacing="0.08"
+                android:fontFamily="sans-serif-medium" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="ডকুমেন্ট ও ফাইল স্ক্যানার, টেক্সট সারাংশ ও OCR"
+                android:textColor="?attr/themeTextMuted"
+                android:textSize="11sp" />
+        </LinearLayout>
+    </LinearLayout>
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginTop="12dp"
+        android:overScrollMode="never">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:paddingBottom="24dp">
+
+            <!-- Selection Options -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@drawable/bg_jarvis_card"
+                android:padding="14dp"
+                android:orientation="vertical">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="IMPORT SOURCE DOCUMENT"
+                    android:textColor="?attr/themeAccent"
+                    android:textSize="10sp"
+                    android:letterSpacing="0.12"
+                    android:textStyle="bold"
+                    android:fontFamily="monospace" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="4dp"
+                    android:text="Select a document or photo using Android system pickers without broad storage access."
+                    android:textColor="?attr/themeTextMuted"
+                    android:textSize="11sp" />
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="12dp"
+                    android:orientation="horizontal">
+
+                    <Button
+                        android:id="@+id/btnPickImageOcr"
+                        android:layout_width="0dp"
+                        android:layout_height="40dp"
+                        android:layout_weight="1"
+                        android:layout_marginEnd="6dp"
+                        android:background="@drawable/bg_jarvis_pill_button"
+                        app:backgroundTint="@null"
+                        android:text="🖼️ PHOTO / IMAGE"
+                        android:textColor="#FFFFFF"
+                        android:textSize="10sp"
+                        android:textStyle="bold" />
+
+                    <Button
+                        android:id="@+id/btnPickDocumentFile"
+                        android:layout_width="0dp"
+                        android:layout_height="40dp"
+                        android:layout_weight="1"
+                        android:layout_marginStart="6dp"
+                        android:background="@drawable/bg_jarvis_pill_button"
+                        app:backgroundTint="@null"
+                        android:text="📄 PDF / TEXT FILE"
+                        android:textColor="#FFFFFF"
+                        android:textSize="10sp"
+                        android:textStyle="bold" />
+                </LinearLayout>
+
+                <Button
+                    android:id="@+id/btnLoadSampleDoc"
+                    android:layout_width="match_parent"
+                    android:layout_height="36dp"
+                    android:layout_marginTop="8dp"
+                    android:background="@drawable/bg_jarvis_chip"
+                    android:text="LOAD SAMPLE MARK 85 SCHEMATIC SPEC"
+                    android:textColor="?attr/themeTextPrimary"
+                    android:textSize="10sp" />
+            </LinearLayout>
+
+            <!-- Document Status & Preview Card -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="14dp"
+                android:background="@drawable/bg_jarvis_card"
+                android:padding="14dp"
+                android:orientation="vertical">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:gravity="center_vertical">
+
+                    <TextView
+                        android:id="@+id/tvDocFileName"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:text="NO DOCUMENT SELECTED"
+                        android:textColor="?attr/themeAccent"
+                        android:textSize="10sp"
+                        android:letterSpacing="0.12"
+                        android:textStyle="bold"
+                        android:fontFamily="monospace" />
+
+                    <TextView
+                        android:id="@+id/tvDocWordCount"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="0 words"
+                        android:textColor="?attr/themeTextMuted"
+                        android:textSize="10sp"
+                        android:fontFamily="monospace" />
+                </LinearLayout>
+
+                <ImageView
+                    android:id="@+id/ivDocPreview"
+                    android:layout_width="match_parent"
+                    android:layout_height="140dp"
+                    android:layout_marginTop="10dp"
+                    android:scaleType="centerCrop"
+                    android:visibility="gone"
+                    android:background="#20FFFFFF"
+                    android:contentDescription="Document image preview" />
+
+                <!-- Action Bar for text -->
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="10dp"
+                    android:orientation="horizontal"
+                    android:gravity="center_vertical">
+
+                    <Button
+                        android:id="@+id/btnSummarizeDoc"
+                        android:layout_width="wrap_content"
+                        android:layout_height="32dp"
+                        android:background="@drawable/bg_jarvis_pill_button"
+                        app:backgroundTint="@null"
+                        android:text="SUMMARIZE"
+                        android:textColor="#FFFFFF"
+                        android:textSize="9sp"
+                        android:textStyle="bold" />
+
+                    <Button
+                        android:id="@+id/btnTranslateDocBn"
+                        android:layout_width="wrap_content"
+                        android:layout_height="32dp"
+                        android:layout_marginStart="6dp"
+                        android:background="@drawable/bg_jarvis_chip"
+                        android:text="বাংলা অনুবাদ"
+                        android:textColor="?attr/themeTextPrimary"
+                        android:textSize="9sp" />
+
+                    <View
+                        android:layout_width="0dp"
+                        android:layout_height="1dp"
+                        android:layout_weight="1" />
+
+                    <ImageButton
+                        android:id="@+id/btnSpeakDoc"
+                        android:layout_width="32dp"
+                        android:layout_height="32dp"
+                        android:background="?attr/selectableItemBackgroundBorderless"
+                        android:src="@drawable/ic_tts_play"
+                        app:tint="?attr/themeAccent"
+                        android:contentDescription="Read text" />
+
+                    <ImageButton
+                        android:id="@+id/btnCopyDoc"
+                        android:layout_width="32dp"
+                        android:layout_height="32dp"
+                        android:background="?attr/selectableItemBackgroundBorderless"
+                        android:src="@drawable/ic_copy"
+                        app:tint="?attr/themeTextMuted"
+                        android:contentDescription="Copy text" />
+                </LinearLayout>
+
+                <TextView
+                    android:id="@+id/tvExtractedDocText"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="10dp"
+                    android:background="@drawable/bg_input_field"
+                    android:padding="12dp"
+                    android:text="Extracted document text will appear here. Tap Photo or PDF/Text File to begin."
+                    android:textColor="?attr/themeTextPrimary"
+                    android:textSize="12sp"
+                    android:lineSpacingExtra="3dp" />
+
+                <!-- Summary or Translation output card -->
+                <TextView
+                    android:id="@+id/tvDocExecutiveSummary"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="10dp"
+                    android:background="@drawable/bg_jarvis_card"
+                    android:padding="10dp"
+                    android:visibility="gone"
+                    android:textColor="?attr/themeAccent"
+                    android:textSize="12sp"
+                    android:lineSpacingExtra="2dp" />
+
+            </LinearLayout>
+
+        </LinearLayout>
+    </ScrollView>
+
+</LinearLayout>

@@ -1,0 +1,182 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:paddingTop="8dp"
+    android:paddingBottom="8dp">
+
+    <!-- 1. Assistant Message Container (Left Aligned with Orb) -->
+    <LinearLayout
+        android:id="@+id/layoutAssistantContainer"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:gravity="top|start"
+        android:visibility="gone">
+
+        <!-- AI Avatar Orb -->
+        <FrameLayout
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:layout_marginEnd="8dp">
+
+            <ImageView
+                android:id="@+id/ivAssistantAvatar"
+                android:layout_width="38dp"
+                android:layout_height="38dp"
+                android:layout_gravity="center"
+                android:background="@drawable/bg_jarvis_orb_halo"
+                android:src="@drawable/ic_jarvis_logo"
+                android:padding="4dp"
+                android:contentDescription="JARVIS Avatar" />
+        </FrameLayout>
+
+        <!-- Message Body & Sub-row -->
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:maxWidth="280dp">
+
+            <TextView
+                android:id="@+id/tvAssistantMessage"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@drawable/bg_jarvis_chat_assistant"
+                android:paddingStart="16dp"
+                android:paddingTop="12dp"
+                android:paddingEnd="16dp"
+                android:paddingBottom="12dp"
+                android:text="Good morning, MD BIPLOB! How can I help you today?"
+                android:textColor="#30203A"
+                android:fontFamily="sans-serif"
+                android:textSize="15sp"
+                android:lineSpacingExtra="3.5dp" />
+
+            <!-- Sub-row: Timestamp + Speak Action -->
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:gravity="center_vertical"
+                android:layout_marginTop="4dp"
+                android:layout_marginStart="4dp">
+
+                <TextView
+                    android:id="@+id/tvAssistantTime"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="7:10 AM"
+                    android:textColor="#8B7894"
+                    android:textSize="11sp"
+                    android:layout_marginEnd="8dp" />
+
+                <ImageButton
+                    android:id="@+id/btnAssistantPlay"
+                    android:layout_width="20dp"
+                    android:layout_height="20dp"
+                    android:background="@null"
+                    android:src="@drawable/ic_tts_play"
+                    app:tint="#8B5CF6"
+                    android:contentDescription="Read Aloud" />
+
+                <ImageButton
+                    android:id="@+id/btnAssistantCopy"
+                    android:layout_width="20dp"
+                    android:layout_height="20dp"
+                    android:background="@null"
+                    android:src="@drawable/ic_copy"
+                    app:tint="#8B7894"
+                    android:layout_marginStart="8dp"
+                    android:contentDescription="Copy Text" />
+            </LinearLayout>
+        </LinearLayout>
+    </LinearLayout>
+
+    <!-- 2. User Message Container (Right Aligned with User Avatar) -->
+    <LinearLayout
+        android:id="@+id/layoutUserContainer"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:gravity="top|end"
+        android:layout_marginTop="6dp"
+        android:visibility="gone">
+
+        <!-- User Message Body & Sub-row -->
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:gravity="end"
+            android:maxWidth="280dp"
+            android:layout_marginEnd="8dp">
+
+            <TextView
+                android:id="@+id/tvUserMessage"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@drawable/bg_jarvis_chat_user"
+                android:paddingStart="16dp"
+                android:paddingTop="12dp"
+                android:paddingEnd="16dp"
+                android:paddingBottom="12dp"
+                android:text="Tell me about Bangladesh."
+                android:textColor="#FFFFFF"
+                android:fontFamily="sans-serif"
+                android:textSize="15sp"
+                android:lineSpacingExtra="2dp" />
+
+            <!-- Sub-row: Timestamp + Read Checkmarks -->
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:gravity="center_vertical"
+                android:layout_marginTop="4dp"
+                android:layout_marginEnd="4dp">
+
+                <TextView
+                    android:id="@+id/tvUserTime"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="7:11 AM"
+                    android:textColor="#8B7894"
+                    android:textSize="11sp"
+                    android:layout_marginEnd="6dp" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="✓✓"
+                    android:textColor="#55C7E8"
+                    android:textSize="12sp"
+                    android:textStyle="bold"
+                    android:layout_marginEnd="8dp" />
+
+                <ImageButton
+                    android:id="@+id/btnUserEdit"
+                    android:layout_width="18dp"
+                    android:layout_height="18dp"
+                    android:background="@null"
+                    android:src="@drawable/ic_edit"
+                    app:tint="#8B7894"
+                    android:contentDescription="Edit Message" />
+            </LinearLayout>
+        </LinearLayout>
+
+        <!-- User Avatar Circle -->
+        <ImageView
+            android:id="@+id/ivUserAvatar"
+            android:layout_width="34dp"
+            android:layout_height="34dp"
+            android:src="@drawable/ic_user_profile"
+            android:background="@drawable/bg_jarvis_icon_square"
+            android:padding="6dp"
+            app:tint="#8B5CF6"
+            android:contentDescription="User Avatar" />
+    </LinearLayout>
+
+</LinearLayout>

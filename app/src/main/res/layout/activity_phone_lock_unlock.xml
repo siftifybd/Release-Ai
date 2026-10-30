@@ -1,0 +1,336 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#0A0204"
+    android:orientation="vertical">
+
+    <!-- Top Bar -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="56dp"
+        android:background="#160306"
+        android:gravity="center_vertical"
+        android:orientation="horizontal"
+        android:paddingHorizontal="16dp">
+
+        <ImageButton
+            android:id="@+id/btnBack"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:background="?attr/selectableItemBackgroundBorderless"
+            android:src="@drawable/ic_back"
+            app:tint="#FFFFFF"
+            android:contentDescription="Back" />
+
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:layout_marginStart="12dp"
+            android:orientation="vertical">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="PHONE LOCK &amp; UNLOCK"
+                android:textColor="#FFFFFF"
+                android:textSize="15sp"
+                android:textStyle="bold"
+                android:letterSpacing="0.08"
+                android:fontFamily="monospace" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="ডিভাইস লক ও আনলক সিকিউরিটি টুল"
+                android:textColor="#FF2A4B"
+                android:textSize="10sp" />
+        </LinearLayout>
+    </LinearLayout>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="#26FF1744" />
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:overScrollMode="never">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:padding="16dp">
+
+            <!-- Device Admin Status Card -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@drawable/bg_jarvis_card"
+                android:orientation="vertical"
+                android:padding="16dp"
+                android:layout_marginBottom="16dp">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center_vertical"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:text="DEVICE ADMIN STATUS"
+                        android:textColor="#FFFFFF"
+                        android:textSize="13sp"
+                        android:textStyle="bold"
+                        android:fontFamily="monospace" />
+
+                    <TextView
+                        android:id="@+id/tvAdminStatusPill"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:background="@drawable/bg_jarvis_status_badge_green"
+                        android:paddingHorizontal="10dp"
+                        android:paddingVertical="4dp"
+                        android:text="ACTIVE"
+                        android:textColor="#FFFFFF"
+                        android:textSize="10sp"
+                        android:textStyle="bold"
+                        android:fontFamily="monospace" />
+                </LinearLayout>
+
+                <TextView
+                    android:id="@+id/tvAdminDescription"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="8dp"
+                    android:text="ফোন লক করার জন্য Android Device Admin সক্রিয় থাকা প্রয়োজন। এটি সিস্টেমের নিরাপদ force-lock পলিসি ব্যবহার করে।"
+                    android:textColor="#B0B0B0"
+                    android:textSize="12sp" />
+
+                <Button
+                    android:id="@+id/btnEnableAdmin"
+                    android:layout_width="match_parent"
+                    android:layout_height="48dp"
+                    android:layout_marginTop="14dp"
+                    android:backgroundTint="#FF1744"
+                    android:text="ACTIVATE DEVICE ADMIN"
+                    android:textColor="#FFFFFF"
+                    android:textStyle="bold"
+                    android:fontFamily="monospace" />
+            </LinearLayout>
+
+            <!-- Quick Action Testing Card -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@drawable/bg_jarvis_card"
+                android:orientation="vertical"
+                android:padding="16dp"
+                android:layout_marginBottom="16dp">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="MANUAL ACTION TEST"
+                    android:textColor="#00E5FF"
+                    android:textSize="13sp"
+                    android:textStyle="bold"
+                    android:fontFamily="monospace" />
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="6dp"
+                    android:text="নিচের বাটনগুলো দিয়ে লক ও আনলক স্ক্রিন ট্র্যাফিক সরাসরি পরীক্ষা করুন:"
+                    android:textColor="#B0B0B0"
+                    android:textSize="12sp" />
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="14dp"
+                    android:orientation="horizontal">
+
+                    <Button
+                        android:id="@+id/btnTestLock"
+                        android:layout_width="0dp"
+                        android:layout_height="48dp"
+                        android:layout_weight="1"
+                        android:layout_marginEnd="6dp"
+                        android:backgroundTint="#8B0000"
+                        android:text="🔒 TEST LOCK"
+                        android:textColor="#FFFFFF"
+                        android:fontFamily="monospace" />
+
+                    <Button
+                        android:id="@+id/btnTestUnlock"
+                        android:layout_width="0dp"
+                        android:layout_height="48dp"
+                        android:layout_weight="1"
+                        android:layout_marginStart="6dp"
+                        android:backgroundTint="#1A3340"
+                        android:text="🔓 UNLOCK SCREEN"
+                        android:textColor="#00E5FF"
+                        android:fontFamily="monospace" />
+                </LinearLayout>
+
+                <TextView
+                    android:id="@+id/tvActionOutput"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="10dp"
+                    android:text="Ready for command execution"
+                    android:textColor="#888888"
+                    android:textSize="11sp"
+                    android:fontFamily="monospace" />
+            </LinearLayout>
+
+            <!-- Microphone & Voice Command Reference Card -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@drawable/bg_jarvis_card"
+                android:orientation="vertical"
+                android:padding="16dp"
+                android:layout_marginBottom="16dp">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center_vertical"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:text="SUPPORTED VOICE COMMANDS"
+                        android:textColor="#FFFFFF"
+                        android:textSize="13sp"
+                        android:textStyle="bold"
+                        android:fontFamily="monospace" />
+
+                    <TextView
+                        android:id="@+id/tvMicStatus"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="MIC: ACTIVE"
+                        android:textColor="#00E5FF"
+                        android:textSize="10sp"
+                        android:fontFamily="monospace" />
+                </LinearLayout>
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="10dp"
+                    android:text="• 'Lock my phone' / 'ফোন লক করো' / 'ফোন লক কর'"
+                    android:textColor="#FF8A9E"
+                    android:textSize="12sp"
+                    android:fontFamily="monospace" />
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="6dp"
+                    android:text="• 'Show unlock screen' / 'আনলক স্ক্রিন দেখাও' / 'লক স্ক্রিন দেখাও'"
+                    android:textColor="#00E5FF"
+                    android:textSize="12sp"
+                    android:fontFamily="monospace" />
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="6dp"
+                    android:text="• 'Hey Jarvis, lock phone' / 'জার্ভিস মোবাইল লক করো'"
+                    android:textColor="#CCCCCC"
+                    android:textSize="12sp"
+                    android:fontFamily="monospace" />
+            </LinearLayout>
+
+            <!-- Security Audit History -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@drawable/bg_jarvis_card"
+                android:orientation="vertical"
+                android:padding="16dp"
+                android:layout_marginBottom="16dp">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center_vertical"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:text="SECURITY AUDIT TRAIL"
+                        android:textColor="#FFFFFF"
+                        android:textSize="13sp"
+                        android:textStyle="bold"
+                        android:fontFamily="monospace" />
+
+                    <Button
+                        android:id="@+id/btnClearAudit"
+                        android:layout_width="wrap_content"
+                        android:layout_height="36dp"
+                        android:backgroundTint="#26FFFFFF"
+                        android:text="CLEAR"
+                        android:textColor="#AAAAAA"
+                        android:textSize="10sp"
+                        android:fontFamily="monospace" />
+                </LinearLayout>
+
+                <TextView
+                    android:id="@+id/tvAuditHistory"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="10dp"
+                    android:text="No actions recorded yet."
+                    android:textColor="#9E9E9E"
+                    android:textSize="11sp"
+                    android:fontFamily="monospace"
+                    android:lineSpacingExtra="4dp" />
+            </LinearLayout>
+
+            <!-- Zero-Bypass Privacy Guarantee -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="#160306"
+                android:orientation="horizontal"
+                android:padding="14dp"
+                android:gravity="center_vertical">
+
+                <TextView
+                    android:layout_width="24dp"
+                    android:layout_height="24dp"
+                    android:gravity="center"
+                    android:text="🛡️"
+                    android:textSize="16sp" />
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:layout_marginStart="10dp"
+                    android:text="JARVIS কখনোই আপনার PIN, Pattern বা পাসওয়ার্ড অ্যাক্সেস বা সেভ করে না। সিস্টেম সিকিউরিটি সম্পূর্ণভাবে Android OS দ্বারা সুরক্ষিত থাকে।"
+                    android:textColor="#888888"
+                    android:textSize="11sp" />
+            </LinearLayout>
+
+        </LinearLayout>
+    </ScrollView>
+
+</LinearLayout>

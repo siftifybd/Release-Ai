@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#0A0204"
+    android:gravity="center"
+    android:orientation="vertical"
+    android:padding="24dp">
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="JARVIS SECURITY PROTOCOL"
+        android:textColor="#FF2A4B"
+        android:textSize="12sp"
+        android:textStyle="bold"
+        android:letterSpacing="0.14"
+        android:fontFamily="monospace" />
+
+    <TextView
+        android:id="@+id/tvUnlockTitle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:text="Device Unlock Screen"
+        android:textColor="#FFFFFF"
+        android:textSize="20sp"
+        android:textStyle="bold" />
+
+    <TextView
+        android:id="@+id/tvUnlockStatus"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="12dp"
+        android:gravity="center"
+        android:text="Android system authentication requested.\nPlease authenticate using your fingerprint, pattern, or PIN."
+        android:textColor="#CCCCCC"
+        android:textSize="13sp" />
+
+    <Button
+        android:id="@+id/btnRetryDismiss"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="28dp"
+        android:backgroundTint="#FF1744"
+        android:text="SHOW SYSTEM KEYGUARD"
+        android:textColor="#FFFFFF"
+        android:fontFamily="monospace" />
+
+    <Button
+        android:id="@+id/btnClosePrompt"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="12dp"
+        android:backgroundTint="#26FFFFFF"
+        android:text="CANCEL"
+        android:textColor="#FFFFFF"
+        android:fontFamily="monospace" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="32dp"
+        android:gravity="center"
+        android:text="JARVIS never stores or reads your system PIN, pattern, or password."
+        android:textColor="#66FFFFFF"
+        android:textSize="10sp"
+        android:fontFamily="monospace" />
+
+</LinearLayout>

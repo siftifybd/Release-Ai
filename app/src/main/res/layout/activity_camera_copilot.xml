@@ -1,0 +1,212 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#050102">
+
+    <!-- Camera Preview Surface -->
+    <TextureView
+        android:id="@+id/cameraTextureView"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent" />
+
+    <!-- AR Cyber Reticle Overlay View -->
+    <FrameLayout
+        android:id="@+id/overlayArReticle"
+        android:layout_width="280dp"
+        android:layout_height="280dp"
+        android:background="@drawable/bg_jarvis_orb_halo"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent">
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="2dp"
+            android:layout_gravity="center"
+            android:background="#33FF1744" />
+
+        <View
+            android:layout_width="2dp"
+            android:layout_height="match_parent"
+            android:layout_gravity="center"
+            android:background="#33FF1744" />
+
+        <TextView
+            android:id="@+id/tvReticleTarget"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="bottom|center_horizontal"
+            android:layout_marginBottom="16dp"
+            android:text="OPTICAL TARGET ACQUIRED"
+            android:textColor="#FF2A4B"
+            android:textSize="10sp"
+            android:letterSpacing="0.14"
+            android:textStyle="bold"
+            android:fontFamily="monospace" />
+    </FrameLayout>
+
+    <!-- Top Navigation & Flash Control -->
+    <LinearLayout
+        android:id="@+id/topBarCamera"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:gravity="center_vertical"
+        android:padding="16dp"
+        android:background="#B3050102"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent">
+
+        <ImageButton
+            android:id="@+id/btnBackCamera"
+            android:layout_width="44dp"
+            android:layout_height="44dp"
+            android:background="@drawable/bg_jarvis_icon_square"
+            android:src="@drawable/ic_back"
+            app:tint="#FFFFFF"
+            android:contentDescription="Back" />
+
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:layout_marginStart="14dp"
+            android:orientation="vertical">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="AR CAMERA COPILOT"
+                android:textColor="#FFFFFF"
+                android:textSize="14sp"
+                android:textStyle="bold"
+                android:letterSpacing="0.12"
+                android:fontFamily="sans-serif-medium" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Real-world text &amp; perception scanner"
+                android:textColor="#A0A0A0"
+                android:textSize="11sp" />
+        </LinearLayout>
+
+        <ImageButton
+            android:id="@+id/btnTorchCamera"
+            android:layout_width="44dp"
+            android:layout_height="44dp"
+            android:background="@drawable/bg_jarvis_icon_square"
+            android:src="@drawable/ic_sparkle"
+            app:tint="#FFB300"
+            android:contentDescription="Toggle Torch" />
+    </LinearLayout>
+
+    <!-- Scanned Result Card -->
+    <LinearLayout
+        android:id="@+id/cardScanResult"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="20dp"
+        android:layout_marginEnd="20dp"
+        android:layout_marginBottom="16dp"
+        android:background="@drawable/bg_jarvis_card"
+        android:orientation="vertical"
+        android:padding="16dp"
+        app:layout_constraintBottom_toTopOf="@id/bottomControlsCamera"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent">
+
+        <TextView
+            android:id="@+id/tvScanTitle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="RECOGNIZED CONTENT"
+            android:textColor="#FF2A4B"
+            android:textSize="11sp"
+            android:letterSpacing="0.12"
+            android:textStyle="bold"
+            android:fontFamily="monospace" />
+
+        <TextView
+            android:id="@+id/tvScanOutput"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:text="Point camera at printed documents, signs, or objects and tap SCAN."
+            android:textColor="#FFFFFF"
+            android:textSize="13sp"
+            android:lineSpacingExtra="3dp"
+            android:maxLines="5" />
+
+        <!-- Actions: Read Aloud, Copy, Translate -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="12dp"
+            android:orientation="horizontal">
+
+            <Button
+                android:id="@+id/btnSpeakResult"
+                android:layout_width="0dp"
+                android:layout_height="38dp"
+                android:layout_weight="1"
+                android:layout_marginEnd="6dp"
+                android:background="@drawable/bg_jarvis_chip"
+                app:backgroundTint="@null"
+                android:text="READ ALOUD"
+                android:textColor="#FFFFFF"
+                android:textSize="11sp"
+                android:textStyle="bold" />
+
+            <Button
+                android:id="@+id/btnTranslateResult"
+                android:layout_width="0dp"
+                android:layout_height="38dp"
+                android:layout_weight="1"
+                android:layout_marginStart="6dp"
+                android:background="@drawable/bg_jarvis_chip"
+                app:backgroundTint="@null"
+                android:text="বাংলায় অনুবাদ"
+                android:textColor="#FFB300"
+                android:textSize="11sp"
+                android:textStyle="bold" />
+        </LinearLayout>
+    </LinearLayout>
+
+    <!-- Bottom Controls: Scan Button -->
+    <LinearLayout
+        android:id="@+id/bottomControlsCamera"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:gravity="center"
+        android:padding="20dp"
+        android:background="#CC050102"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent">
+
+        <Button
+            android:id="@+id/btnScanOptical"
+            android:layout_width="wrap_content"
+            android:layout_height="48dp"
+            android:paddingHorizontal="32dp"
+            android:background="@drawable/bg_jarvis_pill_button"
+            app:backgroundTint="@null"
+            android:text="SCAN &amp; PERCEIVE"
+            android:textColor="#FFFFFF"
+            android:textSize="13sp"
+            android:letterSpacing="0.10"
+            android:textStyle="bold" />
+    </LinearLayout>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

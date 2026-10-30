@@ -1,0 +1,109 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.google.android.material.card.MaterialCardView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginBottom="6dp"
+    app:cardBackgroundColor="#160306"
+    app:strokeColor="#22080D"
+    app:strokeWidth="1dp"
+    app:cardCornerRadius="10dp">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:gravity="center_vertical"
+        android:padding="12dp">
+
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:orientation="vertical">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:gravity="center_vertical">
+
+                <TextView
+                    android:id="@+id/tvFeatureId"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="#feat_001"
+                    android:textColor="#FF2A4B"
+                    android:textSize="10sp"
+                    android:textStyle="bold"
+                    android:fontFamily="monospace" />
+
+                <TextView
+                    android:id="@+id/tvFeatureTitle"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="8dp"
+                    android:text="Room acoustic fingerprint"
+                    android:textColor="#FFFFFF"
+                    android:textSize="13sp"
+                    android:textStyle="bold"
+                    android:maxLines="1"
+                    android:ellipsize="end" />
+            </LinearLayout>
+
+            <TextView
+                android:id="@+id/tvFeatureCategory"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="2dp"
+                android:text="Context Radar"
+                android:textColor="#00E5FF"
+                android:textSize="11sp" />
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="6dp"
+                android:orientation="horizontal"
+                android:gravity="center_vertical">
+
+                <TextView
+                    android:id="@+id/tvRiskBadge"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="LOW"
+                    android:textColor="#4CAF50"
+                    android:textSize="9sp"
+                    android:textStyle="bold"
+                    android:background="#1A4CAF50"
+                    android:paddingHorizontal="6dp"
+                    android:paddingVertical="2dp" />
+
+                <TextView
+                    android:id="@+id/tvPermBadge"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="6dp"
+                    android:text="None"
+                    android:textColor="#CCCCCC"
+                    android:textSize="9sp"
+                    android:background="#22080D"
+                    android:paddingHorizontal="6dp"
+                    android:paddingVertical="2dp" />
+            </LinearLayout>
+
+        </LinearLayout>
+
+        <ImageButton
+            android:id="@+id/btnStar"
+            android:layout_width="36dp"
+            android:layout_height="36dp"
+            android:background="?attr/selectableItemBackgroundBorderless"
+            android:src="@android:drawable/btn_star"
+            app:tint="#666666"
+            android:contentDescription="Star / Pin Feature" />
+
+    </LinearLayout>
+
+</com.google.android.material.card.MaterialCardView>

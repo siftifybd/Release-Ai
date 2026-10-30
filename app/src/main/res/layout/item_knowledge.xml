@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginBottom="12dp"
+    android:background="@drawable/bg_jarvis_action_card"
+    android:orientation="vertical"
+    android:padding="16dp">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:gravity="center_vertical">
+
+        <TextView
+            android:id="@+id/tvKnowledgeCategory"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@drawable/bg_jarvis_status_badge"
+            android:paddingHorizontal="10dp"
+            android:paddingVertical="3dp"
+            android:text="DOCUMENT"
+            android:textColor="?attr/themeAccent"
+            android:textSize="10sp"
+            android:textStyle="bold"
+            android:fontFamily="monospace" />
+
+        <View
+            android:layout_width="0dp"
+            android:layout_height="1dp"
+            android:layout_weight="1" />
+
+        <TextView
+            android:id="@+id/tvKnowledgeDate"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Oct 29, 2026"
+            android:textColor="?attr/themeTextMuted"
+            android:textSize="11sp" />
+    </LinearLayout>
+
+    <TextView
+        android:id="@+id/tvKnowledgeTitle"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:text="Mark 85 Operational Directives"
+        android:textColor="?attr/themeTextPrimary"
+        android:textSize="15sp"
+        android:textStyle="bold" />
+
+    <TextView
+        android:id="@+id/tvKnowledgeContent"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="6dp"
+        android:text="Arc Core protocol operates at 100% efficiency. Offline speech operates via Vosk engine."
+        android:textColor="?attr/themeTextPrimary"
+        android:textSize="13sp"
+        android:lineSpacingExtra="2dp" />
+
+    <TextView
+        android:id="@+id/tvKnowledgeSource"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:text="Source: Stark_Operating_Manual.pdf"
+        android:textColor="?attr/themeTextMuted"
+        android:textSize="11sp"
+        android:fontFamily="monospace" />
+
+</LinearLayout>

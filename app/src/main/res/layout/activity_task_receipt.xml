@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="?attr/themeBg"
+    android:orientation="vertical"
+    android:padding="16dp">
+
+    <!-- Top Action Bar -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:gravity="center_vertical">
+
+        <ImageButton
+            android:id="@+id/btnBackReceipt"
+            android:layout_width="44dp"
+            android:layout_height="44dp"
+            android:background="@drawable/bg_jarvis_icon_square"
+            android:src="@drawable/ic_back"
+            app:tint="?attr/themeTextPrimary"
+            android:contentDescription="Back" />
+
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:layout_marginStart="14dp"
+            android:orientation="vertical">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="TASK RECEIPTS &amp; PROOF"
+                android:textColor="?attr/themeTextPrimary"
+                android:textSize="15sp"
+                android:textStyle="bold"
+                android:letterSpacing="0.10"
+                android:fontFamily="sans-serif-medium" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Verified action execution audit trail"
+                android:textColor="?attr/themeTextMuted"
+                android:textSize="11sp" />
+        </LinearLayout>
+
+        <Button
+            android:id="@+id/btnClearReceipts"
+            android:layout_width="wrap_content"
+            android:layout_height="36dp"
+            android:background="@drawable/bg_jarvis_chip"
+            app:backgroundTint="@null"
+            android:text="CLEAR"
+            android:textColor="?attr/themeTextPrimary"
+            android:textSize="11sp"
+            android:textStyle="bold" />
+    </LinearLayout>
+
+    <!-- Info banner -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="14dp"
+        android:background="@drawable/bg_jarvis_card"
+        android:padding="12dp"
+        android:orientation="horizontal"
+        android:gravity="center_vertical">
+
+        <ImageView
+            android:layout_width="22dp"
+            android:layout_height="22dp"
+            android:src="@drawable/ic_verified_badge"
+            app:tint="?attr/themeAccent"
+            android:contentDescription="Verified" />
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:layout_marginStart="10dp"
+            android:text="Every automation or voice task executed by Jarvis generates an immutable receipt with before/after state evidence."
+            android:textColor="?attr/themeTextMuted"
+            android:textSize="12sp" />
+    </LinearLayout>
+
+    <!-- RecyclerView of receipts -->
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/rvTaskReceipts"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginTop="12dp"
+        android:clipToPadding="false"
+        android:paddingBottom="24dp" />
+
+</LinearLayout>

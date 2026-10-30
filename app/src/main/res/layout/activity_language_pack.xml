@@ -1,0 +1,260 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="?attr/themeBg">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:padding="16dp">
+
+        <!-- Top Action Bar -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:gravity="center_vertical">
+
+            <ImageButton
+                android:id="@+id/btnBackLanguagePack"
+                android:layout_width="44dp"
+                android:layout_height="44dp"
+                android:background="@drawable/bg_jarvis_icon_square"
+                android:src="@drawable/ic_back"
+                app:tint="?attr/themeTextPrimary"
+                android:contentDescription="Back" />
+
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:layout_marginStart="14dp"
+                android:orientation="vertical">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="BANGLA &amp; BANGLISH PACK"
+                    android:textColor="?attr/themeTextPrimary"
+                    android:textSize="14sp"
+                    android:textStyle="bold"
+                    android:letterSpacing="0.08"
+                    android:fontFamily="sans-serif-medium" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="বাংলা ও বাংলিশ ভয়েস কমান্ড ইঞ্জিন"
+                    android:textColor="?attr/themeTextMuted"
+                    android:textSize="11sp" />
+            </LinearLayout>
+        </LinearLayout>
+
+        <!-- Status Card -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="14dp"
+            android:background="@drawable/bg_jarvis_card"
+            android:padding="16dp"
+            android:orientation="vertical">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:gravity="center_vertical">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="🇧🇩 BANGLA INTELLIGENCE"
+                    android:textColor="?attr/themeAccent"
+                    android:textSize="12sp"
+                    android:textStyle="bold"
+                    android:letterSpacing="0.10"
+                    android:fontFamily="monospace" />
+
+                <View
+                    android:layout_width="0dp"
+                    android:layout_height="1dp"
+                    android:layout_weight="1" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/bg_jarvis_status_badge_green"
+                    android:paddingHorizontal="10dp"
+                    android:paddingVertical="4dp"
+                    android:text="ACTIVE"
+                    android:textColor="#FFFFFF"
+                    android:textSize="10sp"
+                    android:textStyle="bold"
+                    android:letterSpacing="0.08"
+                    android:fontFamily="monospace" />
+            </LinearLayout>
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:text="Jarvis translates Bengali script and Banglish phonetics in real-time, mapping them directly to automation commands, YouTube playback, torch control, phone calls, and WhatsApp messaging."
+                android:textColor="?attr/themeTextPrimary"
+                android:textSize="13sp"
+                android:lineSpacingExtra="2dp" />
+        </LinearLayout>
+
+        <!-- Command Examples -->
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:text="SUPPORTED BANGLA COMMANDS"
+            android:textColor="?attr/themeTextMuted"
+            android:textSize="11sp"
+            android:textStyle="bold"
+            android:letterSpacing="0.10"
+            android:fontFamily="monospace" />
+
+        <!-- Command Card 1 -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:background="@drawable/bg_jarvis_action_card"
+            android:orientation="vertical"
+            android:padding="14dp">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="ইউটিউব ও মিউজিক"
+                android:textColor="?attr/themeAccent"
+                android:textSize="13sp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="4dp"
+                android:text="• 'ইউটিউব খোলো' / 'youtube kholo'\n• 'গান বাজাও [নাম]' / 'gaan bajao [name]'\n• 'ফুলস্ক্রিন করো' / 'fullscreen koro'"
+                android:textColor="?attr/themeTextPrimary"
+                android:textSize="12sp"
+                android:lineSpacingExtra="2dp" />
+        </LinearLayout>
+
+        <!-- Command Card 2 -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:background="@drawable/bg_jarvis_action_card"
+            android:orientation="vertical"
+            android:padding="14dp">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="টর্চ ও ডিভাইস হার্ডওয়্যার"
+                android:textColor="?attr/themeAccent"
+                android:textSize="13sp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="4dp"
+                android:text="• 'টর্চ জ্বালাও' / 'torch jalao'\n• 'টর্চ বন্ধ করো' / 'torch bondho koro'\n• 'ব্যাটারি কত' / 'battery koto'\n• 'আবহাওয়া কেমন' / 'weather kemon'"
+                android:textColor="?attr/themeTextPrimary"
+                android:textSize="12sp"
+                android:lineSpacingExtra="2dp" />
+        </LinearLayout>
+
+        <!-- Command Card 3 -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:background="@drawable/bg_jarvis_action_card"
+            android:orientation="vertical"
+            android:padding="14dp">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="কল ও হোয়াটসঅ্যাপ"
+                android:textColor="?attr/themeAccent"
+                android:textSize="13sp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="4dp"
+                android:text="• 'ফোন করো [নাম]' / 'phone koro [name]'\n• 'হোয়াটসঅ্যাপ খোলো' / 'whatsapp kholo'\n• 'কনফার্ম / ঠিক আছে / হ্যাঁ' / 'thik ache / haan'"
+                android:textColor="?attr/themeTextPrimary"
+                android:textSize="12sp"
+                android:lineSpacingExtra="2dp" />
+        </LinearLayout>
+
+        <!-- Test Command Input -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:background="@drawable/bg_jarvis_card"
+            android:padding="16dp"
+            android:orientation="vertical">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="TEST BANGLA COMMAND INTERPRETER"
+                android:textColor="?attr/themeAccent"
+                android:textSize="11sp"
+                android:textStyle="bold"
+                android:letterSpacing="0.08"
+                android:fontFamily="monospace" />
+
+            <EditText
+                android:id="@+id/etTestBanglaCommand"
+                android:layout_width="match_parent"
+                android:layout_height="44dp"
+                android:layout_marginTop="10dp"
+                android:background="@drawable/bg_input_field"
+                android:hint="Try: টর্চ জ্বালাও or youtube kholo"
+                android:textColor="?attr/themeTextPrimary"
+                android:textColorHint="?attr/themeTextMuted"
+                android:paddingHorizontal="14dp"
+                android:textSize="13sp"
+                android:singleLine="true" />
+
+            <Button
+                android:id="@+id/btnTestBanglaExecute"
+                android:layout_width="match_parent"
+                android:layout_height="40dp"
+                android:layout_marginTop="10dp"
+                android:background="@drawable/bg_jarvis_pill_button"
+                app:backgroundTint="@null"
+                android:text="EXECUTE TEST COMMAND"
+                android:textColor="#FFFFFF"
+                android:textSize="12sp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/tvBanglaTestResult"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:text="Interpretation result will appear here."
+                android:textColor="?attr/themeTextMuted"
+                android:textSize="12sp"
+                android:fontFamily="monospace" />
+        </LinearLayout>
+
+    </LinearLayout>
+</ScrollView>

@@ -1,0 +1,673 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/chatRootLayout"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#FFFCF7"
+    android:paddingStart="16dp"
+    android:paddingEnd="16dp"
+    android:paddingTop="12dp"
+    android:paddingBottom="100dp">
+
+    <!-- 1. Top Navigation Header -->
+    <ImageButton
+        android:id="@+id/btnChatMenu"
+        android:layout_width="46dp"
+        android:layout_height="46dp"
+        android:background="@drawable/bg_jarvis_icon_square"
+        android:src="@drawable/ic_menu"
+        app:tint="#30203A"
+        android:contentDescription="Menu"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <LinearLayout
+        android:id="@+id/layoutChatHeader"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:gravity="center"
+        android:layout_marginStart="12dp"
+        android:layout_marginEnd="12dp"
+        app:layout_constraintTop_toTopOf="@id/btnChatMenu"
+        app:layout_constraintBottom_toBottomOf="@id/btnChatMenu"
+        app:layout_constraintStart_toEndOf="@id/btnChatMenu"
+        app:layout_constraintEnd_toStartOf="@id/btnChatSettings">
+
+        <TextView
+            android:id="@+id/tvChatTitle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Jarvis"
+            android:textColor="#30203A"
+            android:textSize="22sp"
+            android:textStyle="bold"
+            android:fontFamily="sans-serif-medium" />
+
+        <TextView
+            android:id="@+id/tvChatSubtitle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Your AI Assistant"
+            android:textColor="#8B7894"
+            android:textSize="12sp"
+            android:fontFamily="sans-serif" />
+    </LinearLayout>
+
+    <ImageButton
+        android:id="@+id/btnChatSettings"
+        android:layout_width="46dp"
+        android:layout_height="46dp"
+        android:background="@drawable/bg_jarvis_icon_square"
+        android:src="@drawable/ic_nav_settings"
+        app:tint="#30203A"
+        android:contentDescription="Settings"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintEnd_toEndOf="parent" />
+
+    <!-- 2. Conversation & Memory Bar (Card 1) -->
+    <LinearLayout
+        android:id="@+id/cardConversationBar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:background="@drawable/bg_jarvis_card"
+        android:padding="12dp"
+        android:gravity="center_vertical"
+        android:layout_marginTop="12dp"
+        app:layout_constraintTop_toBottomOf="@id/btnChatMenu">
+
+        <!-- Left Item: New Conversation -->
+        <LinearLayout
+            android:id="@+id/btnNewConversation"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:orientation="horizontal"
+            android:gravity="center_vertical"
+            android:clickable="true"
+            android:focusable="true"
+            android:paddingEnd="8dp">
+
+            <ImageView
+                android:layout_width="26dp"
+                android:layout_height="26dp"
+                android:src="@drawable/ic_chat_bubble"
+                app:tint="#30203A"
+                android:layout_marginEnd="10dp" />
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="New conversation"
+                    android:textColor="#30203A"
+                    android:textSize="14sp"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Start a fresh chat with Jarvis"
+                    android:textColor="#8B7894"
+                    android:textSize="11sp" />
+            </LinearLayout>
+        </LinearLayout>
+
+        <!-- Divider Line -->
+        <View
+            android:layout_width="1dp"
+            android:layout_height="32dp"
+            android:background="#EBD9CE" />
+
+        <!-- Right Item: Memory Toggle -->
+        <LinearLayout
+            android:id="@+id/btnMemoryToggle"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:orientation="horizontal"
+            android:gravity="center_vertical"
+            android:clickable="true"
+            android:focusable="true"
+            android:paddingStart="10dp">
+
+            <ImageView
+                android:layout_width="26dp"
+                android:layout_height="26dp"
+                android:src="@drawable/ic_brain_memory"
+                android:layout_marginEnd="10dp" />
+
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:orientation="vertical">
+
+                <TextView
+                    android:id="@+id/tvMemoryStatusTitle"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Memory on ●"
+                    android:textColor="#30203A"
+                    android:textSize="14sp"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:id="@+id/tvMemoryStatusSub"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Your memories active"
+                    android:textColor="#8B7894"
+                    android:textSize="11sp" />
+            </LinearLayout>
+
+            <ImageView
+                android:layout_width="16dp"
+                android:layout_height="16dp"
+                android:src="@drawable/ic_arrow_right"
+                app:tint="#8B7894" />
+        </LinearLayout>
+    </LinearLayout>
+
+    <!-- 3. Scrollable Message List -->
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/rvChatMessages"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:clipToPadding="false"
+        android:paddingTop="8dp"
+        android:paddingBottom="8dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginBottom="8dp"
+        app:layout_constraintTop_toBottomOf="@id/cardConversationBar"
+        app:layout_constraintBottom_toTopOf="@id/scrollQuickActions" />
+
+    <!-- 4. Quick Actions Horizontal Scroll Bar -->
+    <HorizontalScrollView
+        android:id="@+id/scrollQuickActions"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:scrollbars="none"
+        android:overScrollMode="never"
+        android:layout_marginBottom="10dp"
+        app:layout_constraintBottom_toTopOf="@id/cardComposerDock">
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:paddingTop="4dp"
+            android:paddingBottom="4dp">
+
+            <!-- Card 1: Summarize -->
+            <LinearLayout
+                android:id="@+id/cardQuickSummarize"
+                android:layout_width="140dp"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:background="@drawable/bg_jarvis_card"
+                android:padding="12dp"
+                android:layout_marginEnd="8dp"
+                android:clickable="true"
+                android:focusable="true">
+
+                <ImageView
+                    android:layout_width="24dp"
+                    android:layout_height="24dp"
+                    android:src="@drawable/ic_summarize_doc"
+                    android:layout_marginBottom="8dp" />
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:gravity="center_vertical">
+
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:text="Summarize"
+                        android:textColor="#30203A"
+                        android:textSize="13sp"
+                        android:textStyle="bold" />
+
+                    <ImageView
+                        android:layout_width="14dp"
+                        android:layout_height="14dp"
+                        android:src="@drawable/ic_arrow_right"
+                        app:tint="#8B7894" />
+                </LinearLayout>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Get a quick summary"
+                    android:textColor="#8B7894"
+                    android:textSize="11sp"
+                    android:layout_marginTop="2dp" />
+            </LinearLayout>
+
+            <!-- Card 2: Create Reminder -->
+            <LinearLayout
+                android:id="@+id/cardQuickReminder"
+                android:layout_width="140dp"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:background="@drawable/bg_jarvis_card"
+                android:padding="12dp"
+                android:layout_marginEnd="8dp"
+                android:clickable="true"
+                android:focusable="true">
+
+                <ImageView
+                    android:layout_width="24dp"
+                    android:layout_height="24dp"
+                    android:src="@drawable/ic_calendar_reminder"
+                    android:layout_marginBottom="8dp" />
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:gravity="center_vertical">
+
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:text="Create reminder"
+                        android:textColor="#30203A"
+                        android:textSize="13sp"
+                        android:textStyle="bold" />
+
+                    <ImageView
+                        android:layout_width="14dp"
+                        android:layout_height="14dp"
+                        android:src="@drawable/ic_arrow_right"
+                        app:tint="#8B7894" />
+                </LinearLayout>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Set a reminder"
+                    android:textColor="#8B7894"
+                    android:textSize="11sp"
+                    android:layout_marginTop="2dp" />
+            </LinearLayout>
+
+            <!-- Card 3: Ask Anything -->
+            <LinearLayout
+                android:id="@+id/cardQuickAskAnything"
+                android:layout_width="140dp"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:background="@drawable/bg_jarvis_card"
+                android:padding="12dp"
+                android:layout_marginEnd="8dp"
+                android:clickable="true"
+                android:focusable="true">
+
+                <ImageView
+                    android:layout_width="24dp"
+                    android:layout_height="24dp"
+                    android:src="@drawable/ic_sparkle"
+                    app:tint="#E879B5"
+                    android:layout_marginBottom="8dp" />
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:gravity="center_vertical">
+
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:text="Ask anything"
+                        android:textColor="#30203A"
+                        android:textSize="13sp"
+                        android:textStyle="bold" />
+
+                    <ImageView
+                        android:layout_width="14dp"
+                        android:layout_height="14dp"
+                        android:src="@drawable/ic_arrow_right"
+                        app:tint="#8B7894" />
+                </LinearLayout>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Any question"
+                    android:textColor="#8B7894"
+                    android:textSize="11sp"
+                    android:layout_marginTop="2dp" />
+            </LinearLayout>
+
+            <!-- Card 4: More -->
+            <LinearLayout
+                android:id="@+id/cardQuickMore"
+                android:layout_width="140dp"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:background="@drawable/bg_jarvis_card"
+                android:padding="12dp"
+                android:clickable="true"
+                android:focusable="true">
+
+                <ImageView
+                    android:layout_width="24dp"
+                    android:layout_height="24dp"
+                    android:src="@drawable/ic_globe_more"
+                    android:layout_marginBottom="8dp" />
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:gravity="center_vertical">
+
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:text="More"
+                        android:textColor="#30203A"
+                        android:textSize="13sp"
+                        android:textStyle="bold" />
+
+                    <ImageView
+                        android:layout_width="14dp"
+                        android:layout_height="14dp"
+                        android:src="@drawable/ic_arrow_right"
+                        app:tint="#8B7894" />
+                </LinearLayout>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Explore options"
+                    android:textColor="#8B7894"
+                    android:textSize="11sp"
+                    android:layout_marginTop="2dp" />
+            </LinearLayout>
+
+        </LinearLayout>
+    </HorizontalScrollView>
+
+    <!-- 5. Rich Composer Dock Container -->
+    <LinearLayout
+        android:id="@+id/cardComposerDock"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:background="@drawable/bg_jarvis_dock"
+        android:padding="12dp"
+        app:layout_constraintBottom_toBottomOf="parent">
+
+        <!-- Top Pill Status -->
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:orientation="horizontal"
+            android:gravity="center"
+            android:background="@drawable/bg_jarvis_chip"
+            android:paddingStart="14dp"
+            android:paddingTop="4dp"
+            android:paddingEnd="14dp"
+            android:paddingBottom="4dp"
+            android:layout_marginBottom="8dp">
+
+            <ImageView
+                android:id="@+id/ivVoiceStatusWave"
+                android:layout_width="14dp"
+                android:layout_height="14dp"
+                android:src="@drawable/ic_tts_play"
+                app:tint="#8B5CF6"
+                android:layout_marginEnd="6dp" />
+
+            <TextView
+                android:id="@+id/tvVoiceStatusText"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Listening Off"
+                android:textColor="#30203A"
+                android:textSize="12sp"
+                android:textStyle="bold" />
+        </LinearLayout>
+
+        <!-- Optional Attachment Preview Container -->
+        <LinearLayout
+            android:id="@+id/layoutAttachmentPreview"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:gravity="center_vertical"
+            android:background="@drawable/bg_jarvis_chip"
+            android:padding="8dp"
+            android:layout_marginBottom="8dp"
+            android:visibility="gone">
+
+            <ImageView
+                android:id="@+id/ivAttachedImage"
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                android:scaleType="centerCrop"
+                android:src="@drawable/ic_attachment"
+                android:contentDescription="Attachment Preview" />
+
+            <TextView
+                android:id="@+id/tvAttachmentName"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="Attached File"
+                android:textColor="#30203A"
+                android:textSize="12sp"
+                android:layout_marginStart="8dp"
+                android:ellipsize="middle"
+                android:singleLine="true" />
+
+            <ImageButton
+                android:id="@+id/btnRemoveAttachment"
+                android:layout_width="28dp"
+                android:layout_height="28dp"
+                android:background="@null"
+                android:src="@drawable/ic_close"
+                app:tint="#8B7894"
+                android:contentDescription="Remove Attachment" />
+        </LinearLayout>
+
+        <!-- Message Input Row (Attachment | Input | Emoji | Send) -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:gravity="center_vertical"
+            android:background="@drawable/bg_input_field"
+            android:paddingStart="12dp"
+            android:paddingEnd="8dp"
+            android:paddingTop="6dp"
+            android:paddingBottom="6dp">
+
+            <ImageButton
+                android:id="@+id/btnAttach"
+                android:layout_width="36dp"
+                android:layout_height="36dp"
+                android:background="@null"
+                android:src="@drawable/ic_attachment"
+                app:tint="#30203A"
+                android:contentDescription="Attach" />
+
+            <EditText
+                android:id="@+id/etMessageInput"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:hint="Type a message..."
+                android:textColorHint="#8B7894"
+                android:textColor="#30203A"
+                android:textSize="15sp"
+                android:fontFamily="sans-serif"
+                android:background="@null"
+                android:minLines="1"
+                android:maxLines="4"
+                android:inputType="textCapSentences|textMultiLine"
+                android:paddingStart="8dp"
+                android:paddingEnd="8dp" />
+
+            <ImageButton
+                android:id="@+id/btnEmoji"
+                android:layout_width="36dp"
+                android:layout_height="36dp"
+                android:background="@null"
+                android:src="@drawable/ic_emoji"
+                app:tint="#30203A"
+                android:layout_marginEnd="6dp"
+                android:contentDescription="Emoji" />
+
+            <ImageButton
+                android:id="@+id/btnSendMessage"
+                android:layout_width="44dp"
+                android:layout_height="44dp"
+                android:background="@drawable/bg_jarvis_chat_user"
+                android:src="@drawable/ic_send_up"
+                app:tint="#FFFFFF"
+                android:padding="10dp"
+                android:contentDescription="Send" />
+        </LinearLayout>
+
+        <!-- Composer Shortcuts Grid (4 Icons) -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:gravity="center"
+            android:layout_marginTop="12dp">
+
+            <!-- Tap to speak -->
+            <LinearLayout
+                android:id="@+id/btnShortcutSpeak"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:orientation="vertical"
+                android:gravity="center"
+                android:clickable="true"
+                android:focusable="true">
+
+                <ImageView
+                    android:layout_width="28dp"
+                    android:layout_height="28dp"
+                    android:src="@drawable/ic_mic_jarvis"
+                    app:tint="#8B5CF6"
+                    android:background="@drawable/bg_jarvis_icon_square"
+                    android:padding="6dp" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Tap to speak"
+                    android:textColor="#30203A"
+                    android:textSize="11sp"
+                    android:layout_marginTop="4dp" />
+            </LinearLayout>
+
+            <!-- Attach files -->
+            <LinearLayout
+                android:id="@+id/btnShortcutAttach"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:orientation="vertical"
+                android:gravity="center"
+                android:clickable="true"
+                android:focusable="true">
+
+                <ImageView
+                    android:layout_width="28dp"
+                    android:layout_height="28dp"
+                    android:src="@drawable/ic_attachment"
+                    app:tint="#55C7E8"
+                    android:background="@drawable/bg_jarvis_icon_square"
+                    android:padding="6dp" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Attach files"
+                    android:textColor="#30203A"
+                    android:textSize="11sp"
+                    android:layout_marginTop="4dp" />
+            </LinearLayout>
+
+            <!-- Open camera -->
+            <LinearLayout
+                android:id="@+id/btnShortcutCamera"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:orientation="vertical"
+                android:gravity="center"
+                android:clickable="true"
+                android:focusable="true">
+
+                <ImageView
+                    android:layout_width="28dp"
+                    android:layout_height="28dp"
+                    android:src="@drawable/ic_camera"
+                    app:tint="#E879B5"
+                    android:background="@drawable/bg_jarvis_icon_square"
+                    android:padding="6dp" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Open camera"
+                    android:textColor="#30203A"
+                    android:textSize="11sp"
+                    android:layout_marginTop="4dp" />
+            </LinearLayout>
+
+            <!-- Scan & OCR -->
+            <LinearLayout
+                android:id="@+id/btnShortcutOCR"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:orientation="vertical"
+                android:gravity="center"
+                android:clickable="true"
+                android:focusable="true">
+
+                <ImageView
+                    android:layout_width="28dp"
+                    android:layout_height="28dp"
+                    android:src="@drawable/ic_scan_ocr"
+                    app:tint="#FF805D"
+                    android:background="@drawable/bg_jarvis_icon_square"
+                    android:padding="6dp" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Scan &amp; OCR"
+                    android:textColor="#30203A"
+                    android:textSize="11sp"
+                    android:layout_marginTop="4dp" />
+            </LinearLayout>
+        </LinearLayout>
+    </LinearLayout>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

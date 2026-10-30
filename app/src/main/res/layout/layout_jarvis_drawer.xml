@@ -1,0 +1,837 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/navDrawerRoot"
+    android:layout_width="320dp"
+    android:layout_height="match_parent"
+    android:layout_gravity="start"
+    android:background="#0A0204"
+    android:orientation="vertical"
+    android:clickable="true"
+    android:focusable="true">
+
+    <!-- Glowing Arc Header -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="#160306"
+        android:paddingTop="36dp"
+        android:paddingBottom="20dp"
+        android:paddingHorizontal="20dp"
+        android:orientation="vertical">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:gravity="center_vertical">
+
+            <View
+                android:layout_width="28dp"
+                android:layout_height="28dp"
+                android:background="@drawable/bg_jarvis_avatar" />
+
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:layout_marginStart="12dp"
+                android:orientation="vertical">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="JARVIS MARK 85"
+                    android:textColor="#FFFFFF"
+                    android:textSize="15sp"
+                    android:letterSpacing="0.14"
+                    android:textStyle="bold"
+                    android:fontFamily="monospace" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="CYBERNETIC CORE"
+                    android:textColor="#FF2A4B"
+                    android:textSize="10sp"
+                    android:letterSpacing="0.10"
+                    android:textStyle="bold"
+                    android:fontFamily="monospace" />
+            </LinearLayout>
+
+            <ImageButton
+                android:id="@+id/btnCloseDrawer"
+                android:layout_width="36dp"
+                android:layout_height="36dp"
+                android:background="?attr/selectableItemBackgroundBorderless"
+                android:src="@drawable/ic_close"
+                app:tint="#A0A0A0"
+                android:contentDescription="Close Drawer" />
+        </LinearLayout>
+
+        <TextView
+            android:id="@+id/tvDrawerGreeting"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="14dp"
+            android:text="Welcome, Boss"
+            android:textColor="#FFFFFF"
+            android:textSize="14sp"
+            android:textStyle="bold"
+            android:fontFamily="sans-serif-medium" />
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="6dp"
+            android:orientation="horizontal"
+            android:gravity="center_vertical"
+            android:background="@drawable/bg_jarvis_status_badge_green"
+            android:paddingHorizontal="10dp"
+            android:paddingVertical="3dp">
+
+            <View
+                android:layout_width="6dp"
+                android:layout_height="6dp"
+                android:background="@drawable/bg_jarvis_mic_center"
+                android:backgroundTint="#FFFFFF" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="6dp"
+                android:text="AR PROTOCOL READY"
+                android:textColor="#FFFFFF"
+                android:textSize="9sp"
+                android:textStyle="bold"
+                android:fontFamily="monospace" />
+        </LinearLayout>
+    </LinearLayout>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="#26FF1744" />
+
+    <!-- Scrollable Drawer Items -->
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:overScrollMode="never">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:paddingHorizontal="14dp"
+            android:paddingVertical="10dp">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="10dp"
+                android:layout_marginTop="6dp"
+                android:layout_marginBottom="4dp"
+                android:text="NEW CAPABILITIES"
+                android:textColor="#FF2A4B"
+                android:textSize="10sp"
+                android:letterSpacing="0.14"
+                android:textStyle="bold"
+                android:fontFamily="monospace" />
+
+            <!-- Item Nexus: JARVIS NEXUS Wi-Fi LAN + Internet Remote Control -->
+            <LinearLayout
+                android:id="@+id/navDrawerNexus"
+                android:layout_width="match_parent"
+                android:layout_height="56dp"
+                android:background="@drawable/bg_nexus_purple_btn"
+                android:orientation="horizontal"
+                android:gravity="center_vertical"
+                android:paddingHorizontal="12dp"
+                android:layout_marginBottom="6dp"
+                android:clickable="true"
+                android:focusable="true">
+
+                <ImageView
+                    android:layout_width="26dp"
+                    android:layout_height="26dp"
+                    android:src="@drawable/ic_nexus_wifi"
+                    app:tint="#FFFFFF"
+                    android:contentDescription="Nexus Wi-Fi Remote" />
+
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:layout_marginStart="12dp"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="JARVIS NEXUS (Wi-Fi Remote)"
+                        android:textColor="#FFFFFF"
+                        android:textSize="13sp"
+                        android:textStyle="bold" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Wi-Fi LAN + Internet Remote Control"
+                        android:textColor="#C4B5FD"
+                        android:textSize="10sp" />
+                </LinearLayout>
+
+                <ImageView
+                    android:layout_width="16dp"
+                    android:layout_height="16dp"
+                    android:src="@drawable/ic_arrow_right"
+                    app:tint="#FFFFFF"
+                    android:contentDescription="Arrow" />
+            </LinearLayout>
+
+            <!-- Item 0: 500+ Feature Hub & Directory -->
+            <LinearLayout
+                android:id="@+id/navDrawer500FeatureHub"
+                android:layout_width="match_parent"
+                android:layout_height="56dp"
+                android:background="@drawable/bg_jarvis_row_item"
+                android:orientation="horizontal"
+                android:gravity="center_vertical"
+                android:paddingHorizontal="12dp"
+                android:layout_marginBottom="6dp"
+                android:clickable="true"
+                android:focusable="true">
+
+                <TextView
+                    android:layout_width="28dp"
+                    android:layout_height="28dp"
+                    android:gravity="center"
+                    android:text="🚀"
+                    android:textSize="18sp" />
+
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:layout_marginStart="12dp"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="500+ Feature Hub &amp; Directory"
+                        android:textColor="#00E5FF"
+                        android:textSize="13sp"
+                        android:textStyle="bold" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="২৫ টি ক্যাটাগরি ও ৫০০ বিশেষ ফিচার হাব"
+                        android:textColor="#FF8A9E"
+                        android:textSize="10sp" />
+                </LinearLayout>
+
+                <ImageView
+                    android:layout_width="16dp"
+                    android:layout_height="16dp"
+                    android:src="@drawable/ic_arrow_right"
+                    app:tint="#00E5FF"
+                    android:contentDescription="Arrow" />
+            </LinearLayout>
+
+            <!-- Item 1: Bangla & Banglish Pack -->
+            <LinearLayout
+                android:id="@+id/navDrawerBanglaPack"
+                android:layout_width="match_parent"
+                android:layout_height="52dp"
+                android:background="@drawable/bg_jarvis_row_item"
+                android:orientation="horizontal"
+                android:gravity="center_vertical"
+                android:paddingHorizontal="12dp"
+                android:layout_marginBottom="4dp"
+                android:clickable="true"
+                android:focusable="true">
+
+                <TextView
+                    android:layout_width="28dp"
+                    android:layout_height="28dp"
+                    android:gravity="center"
+                    android:text="🇧🇩"
+                    android:textSize="18sp" />
+
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:layout_marginStart="12dp"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Bangla &amp; Banglish Voice"
+                        android:textColor="#FFFFFF"
+                        android:textSize="13sp"
+                        android:textStyle="bold" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="বাংলা ও বাংলিশ কমান্ড ইঞ্জিন"
+                        android:textColor="#FF8A9E"
+                        android:textSize="10sp" />
+                </LinearLayout>
+
+                <ImageView
+                    android:layout_width="16dp"
+                    android:layout_height="16dp"
+                    android:src="@drawable/ic_arrow_right"
+                    app:tint="#A0A0A0"
+                    android:contentDescription="Arrow" />
+            </LinearLayout>
+
+            <!-- Item 2: Proof of Action / Task Receipts -->
+            <LinearLayout
+                android:id="@+id/navDrawerTaskReceipts"
+                android:layout_width="match_parent"
+                android:layout_height="52dp"
+                android:background="@drawable/bg_jarvis_row_item"
+                android:orientation="horizontal"
+                android:gravity="center_vertical"
+                android:paddingHorizontal="12dp"
+                android:layout_marginBottom="4dp"
+                android:clickable="true"
+                android:focusable="true">
+
+                <ImageView
+                    android:layout_width="24dp"
+                    android:layout_height="24dp"
+                    android:src="@drawable/ic_verified_badge"
+                    app:tint="#FF2A4B"
+                    android:contentDescription="Task Receipts" />
+
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:layout_marginStart="12dp"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Proof of Action / Receipts"
+                        android:textColor="#FFFFFF"
+                        android:textSize="13sp"
+                        android:textStyle="bold" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="যাচাইকৃত কাজের অডিট ট্রেইল"
+                        android:textColor="#FF8A9E"
+                        android:textSize="10sp" />
+                </LinearLayout>
+
+                <ImageView
+                    android:layout_width="16dp"
+                    android:layout_height="16dp"
+                    android:src="@drawable/ic_arrow_right"
+                    app:tint="#A0A0A0"
+                    android:contentDescription="Arrow" />
+            </LinearLayout>
+
+            <!-- Item 3: Workflow Recorder & Replay -->
+            <LinearLayout
+                android:id="@+id/navDrawerWorkflows"
+                android:layout_width="match_parent"
+                android:layout_height="52dp"
+                android:background="@drawable/bg_jarvis_row_item"
+                android:orientation="horizontal"
+                android:gravity="center_vertical"
+                android:paddingHorizontal="12dp"
+                android:layout_marginBottom="4dp"
+                android:clickable="true"
+                android:focusable="true">
+
+                <TextView
+                    android:layout_width="28dp"
+                    android:layout_height="28dp"
+                    android:gravity="center"
+                    android:text="⚡"
+                    android:textSize="18sp" />
+
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:layout_marginStart="12dp"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Workflow Recorder &amp; Replay"
+                        android:textColor="#FFFFFF"
+                        android:textSize="13sp"
+                        android:textStyle="bold" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="স্বয়ংক্রিয় রুটিন ও এক-ক্লিকে প্লে"
+                        android:textColor="#FF8A9E"
+                        android:textSize="10sp" />
+                </LinearLayout>
+
+                <ImageView
+                    android:layout_width="16dp"
+                    android:layout_height="16dp"
+                    android:src="@drawable/ic_arrow_right"
+                    app:tint="#A0A0A0"
+                    android:contentDescription="Arrow" />
+            </LinearLayout>
+
+            <!-- Item 4: Offline Knowledge Vault -->
+            <LinearLayout
+                android:id="@+id/navDrawerKnowledgeVault"
+                android:layout_width="match_parent"
+                android:layout_height="52dp"
+                android:background="@drawable/bg_jarvis_row_item"
+                android:orientation="horizontal"
+                android:gravity="center_vertical"
+                android:paddingHorizontal="12dp"
+                android:layout_marginBottom="4dp"
+                android:clickable="true"
+                android:focusable="true">
+
+                <ImageView
+                    android:layout_width="24dp"
+                    android:layout_height="24dp"
+                    android:src="@drawable/ic_settings_book"
+                    app:tint="#FF2A4B"
+                    android:contentDescription="Knowledge Vault" />
+
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:layout_marginStart="12dp"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Offline Knowledge Vault"
+                        android:textColor="#FFFFFF"
+                        android:textSize="13sp"
+                        android:textStyle="bold" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="ডকুমেন্ট ও ভয়েস জার্নাল সার্চ"
+                        android:textColor="#FF8A9E"
+                        android:textSize="10sp" />
+                </LinearLayout>
+
+                <ImageView
+                    android:layout_width="16dp"
+                    android:layout_height="16dp"
+                    android:src="@drawable/ic_arrow_right"
+                    app:tint="#A0A0A0"
+                    android:contentDescription="Arrow" />
+            </LinearLayout>
+
+            <!-- Item 5: Notification Digest -->
+            <LinearLayout
+                android:id="@+id/navDrawerNotificationDigest"
+                android:layout_width="match_parent"
+                android:layout_height="52dp"
+                android:background="@drawable/bg_jarvis_row_item"
+                android:orientation="horizontal"
+                android:gravity="center_vertical"
+                android:paddingHorizontal="12dp"
+                android:layout_marginBottom="4dp"
+                android:clickable="true"
+                android:focusable="true">
+
+                <ImageView
+                    android:layout_width="24dp"
+                    android:layout_height="24dp"
+                    android:src="@drawable/ic_nav_bell"
+                    app:tint="#FF2A4B"
+                    android:contentDescription="Notification Digest" />
+
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:layout_marginStart="12dp"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Notification Digest"
+                        android:textColor="#FFFFFF"
+                        android:textSize="13sp"
+                        android:textStyle="bold" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="প্রাইওরিটি ইনবক্স ও ভয়েস রিডআউট"
+                        android:textColor="#FF8A9E"
+                        android:textSize="10sp" />
+                </LinearLayout>
+
+                <ImageView
+                    android:layout_width="16dp"
+                    android:layout_height="16dp"
+                    android:src="@drawable/ic_arrow_right"
+                    app:tint="#A0A0A0"
+                    android:contentDescription="Arrow" />
+            </LinearLayout>
+
+            <!-- Item 6: Smart Context & Profiles -->
+            <LinearLayout
+                android:id="@+id/navDrawerContextProfiles"
+                android:layout_width="match_parent"
+                android:layout_height="52dp"
+                android:background="@drawable/bg_jarvis_row_item"
+                android:orientation="horizontal"
+                android:gravity="center_vertical"
+                android:paddingHorizontal="12dp"
+                android:layout_marginBottom="4dp"
+                android:clickable="true"
+                android:focusable="true">
+
+                <TextView
+                    android:layout_width="28dp"
+                    android:layout_height="28dp"
+                    android:gravity="center"
+                    android:text="🎯"
+                    android:textSize="18sp" />
+
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:layout_marginStart="12dp"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Smart Context &amp; Profiles"
+                        android:textColor="#FFFFFF"
+                        android:textSize="13sp"
+                        android:textStyle="bold" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="ফোকাস, ড্রাইভিং ও মিটিং প্রোফাইল"
+                        android:textColor="#FF8A9E"
+                        android:textSize="10sp" />
+                </LinearLayout>
+
+                <ImageView
+                    android:layout_width="16dp"
+                    android:layout_height="16dp"
+                    android:src="@drawable/ic_arrow_right"
+                    app:tint="#A0A0A0"
+                    android:contentDescription="Arrow" />
+            </LinearLayout>
+
+            <!-- Item 7: Device Health & Diagnostics -->
+            <LinearLayout
+                android:id="@+id/navDrawerDiagnostics"
+                android:layout_width="match_parent"
+                android:layout_height="52dp"
+                android:background="@drawable/bg_jarvis_row_item"
+                android:orientation="horizontal"
+                android:gravity="center_vertical"
+                android:paddingHorizontal="12dp"
+                android:layout_marginBottom="4dp"
+                android:clickable="true"
+                android:focusable="true">
+
+                <ImageView
+                    android:layout_width="24dp"
+                    android:layout_height="24dp"
+                    android:src="@drawable/ic_settings_shield"
+                    app:tint="#FF2A4B"
+                    android:contentDescription="Device Health" />
+
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:layout_marginStart="12dp"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Device Health &amp; Diagnostics"
+                        android:textColor="#FFFFFF"
+                        android:textSize="13sp"
+                        android:textStyle="bold" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="হার্ডওয়্যার ও পারমিশন সেলফ-রিপেয়ার"
+                        android:textColor="#FF8A9E"
+                        android:textSize="10sp" />
+                </LinearLayout>
+
+                <ImageView
+                    android:layout_width="16dp"
+                    android:layout_height="16dp"
+                    android:src="@drawable/ic_arrow_right"
+                    app:tint="#A0A0A0"
+                    android:contentDescription="Arrow" />
+            </LinearLayout>
+
+            <!-- Item 8: AR & Camera Copilot -->
+            <LinearLayout
+                android:id="@+id/navDrawerCameraCopilot"
+                android:layout_width="match_parent"
+                android:layout_height="52dp"
+                android:background="@drawable/bg_jarvis_row_item"
+                android:orientation="horizontal"
+                android:gravity="center_vertical"
+                android:paddingHorizontal="12dp"
+                android:layout_marginBottom="4dp"
+                android:clickable="true"
+                android:focusable="true">
+
+                <TextView
+                    android:layout_width="28dp"
+                    android:layout_height="28dp"
+                    android:gravity="center"
+                    android:text="👁️"
+                    android:textSize="18sp" />
+
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:layout_marginStart="12dp"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="AR &amp; Camera Copilot"
+                        android:textColor="#FFFFFF"
+                        android:textSize="13sp"
+                        android:textStyle="bold" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="অপটিক্যাল টেক্সট স্ক্যান ও অনুধাবন"
+                        android:textColor="#FF8A9E"
+                        android:textSize="10sp" />
+                </LinearLayout>
+
+                <ImageView
+                    android:layout_width="16dp"
+                    android:layout_height="16dp"
+                    android:src="@drawable/ic_arrow_right"
+                    app:tint="#A0A0A0"
+                    android:contentDescription="Arrow" />
+            </LinearLayout>
+
+            <!-- Item 8b: Phone Lock & Unlock Tool -->
+            <LinearLayout
+                android:id="@+id/navDrawerPhoneLock"
+                android:layout_width="match_parent"
+                android:layout_height="52dp"
+                android:background="@drawable/bg_jarvis_row_item"
+                android:orientation="horizontal"
+                android:gravity="center_vertical"
+                android:paddingHorizontal="12dp"
+                android:layout_marginBottom="4dp"
+                android:clickable="true"
+                android:focusable="true">
+
+                <ImageView
+                    android:layout_width="24dp"
+                    android:layout_height="24dp"
+                    android:src="@drawable/ic_settings_lock"
+                    app:tint="#FF2A4B"
+                    android:contentDescription="Phone Lock" />
+
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:layout_marginStart="12dp"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Phone Lock &amp; Unlock"
+                        android:textColor="#FFFFFF"
+                        android:textSize="13sp"
+                        android:textStyle="bold" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="ভয়েস লক ও আনলক স্ক্রিন টুল"
+                        android:textColor="#FF8A9E"
+                        android:textSize="10sp" />
+                </LinearLayout>
+
+                <TextView
+                    android:id="@+id/tvDrawerLockStatus"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginEnd="6dp"
+                    android:background="@drawable/bg_jarvis_status_badge"
+                    android:paddingHorizontal="6dp"
+                    android:paddingVertical="2dp"
+                    android:text="SETUP"
+                    android:textColor="#00E5FF"
+                    android:textSize="9sp"
+                    android:textStyle="bold" />
+
+                <ImageView
+                    android:layout_width="16dp"
+                    android:layout_height="16dp"
+                    android:src="@drawable/ic_arrow_right"
+                    app:tint="#A0A0A0"
+                    android:contentDescription="Arrow" />
+            </LinearLayout>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="10dp"
+                android:layout_marginTop="12dp"
+                android:layout_marginBottom="4dp"
+                android:text="CORE PROTOCOLS"
+                android:textColor="#FF2A4B"
+                android:textSize="10sp"
+                android:letterSpacing="0.14"
+                android:textStyle="bold"
+                android:fontFamily="monospace" />
+
+            <!-- Item 9: Recall Memory Core -->
+            <LinearLayout
+                android:id="@+id/navDrawerMemoryCore"
+                android:layout_width="match_parent"
+                android:layout_height="48dp"
+                android:background="@drawable/bg_jarvis_row_item"
+                android:orientation="horizontal"
+                android:gravity="center_vertical"
+                android:paddingHorizontal="12dp"
+                android:layout_marginBottom="4dp"
+                android:clickable="true"
+                android:focusable="true">
+
+                <ImageView
+                    android:layout_width="22dp"
+                    android:layout_height="22dp"
+                    android:src="@drawable/ic_stack_memory"
+                    app:tint="#A0A0A0"
+                    android:contentDescription="Memory" />
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:layout_marginStart="12dp"
+                    android:text="Memory Core"
+                    android:textColor="#FFFFFF"
+                    android:textSize="13sp" />
+
+                <ImageView
+                    android:layout_width="16dp"
+                    android:layout_height="16dp"
+                    android:src="@drawable/ic_arrow_right"
+                    app:tint="#A0A0A0"
+                    android:contentDescription="Arrow" />
+            </LinearLayout>
+
+            <!-- Item 10: Jarvis Settings -->
+            <LinearLayout
+                android:id="@+id/navDrawerSettings"
+                android:layout_width="match_parent"
+                android:layout_height="48dp"
+                android:background="@drawable/bg_jarvis_row_item"
+                android:orientation="horizontal"
+                android:gravity="center_vertical"
+                android:paddingHorizontal="12dp"
+                android:layout_marginBottom="8dp"
+                android:clickable="true"
+                android:focusable="true">
+
+                <ImageView
+                    android:layout_width="22dp"
+                    android:layout_height="22dp"
+                    android:src="@drawable/ic_nav_settings"
+                    app:tint="#A0A0A0"
+                    android:contentDescription="Settings" />
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:layout_marginStart="12dp"
+                    android:text="Settings &amp; Persona"
+                    android:textColor="#FFFFFF"
+                    android:textSize="13sp" />
+
+                <ImageView
+                    android:layout_width="16dp"
+                    android:layout_height="16dp"
+                    android:src="@drawable/ic_arrow_right"
+                    app:tint="#A0A0A0"
+                    android:contentDescription="Arrow" />
+            </LinearLayout>
+
+        </LinearLayout>
+    </ScrollView>
+
+    <!-- Footer -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="#160306"
+        android:padding="16dp"
+        android:orientation="horizontal"
+        android:gravity="center_vertical">
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="JARVIS v1.8.7 • AI STUDIO"
+            android:textColor="#66FFFFFF"
+            android:textSize="11sp"
+            android:fontFamily="monospace" />
+
+        <TextView
+            android:id="@+id/tvDrawerCloseAction"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="DISMISS"
+            android:textColor="#FF2A4B"
+            android:textSize="11sp"
+            android:textStyle="bold"
+            android:fontFamily="monospace" />
+    </LinearLayout>
+
+</LinearLayout>

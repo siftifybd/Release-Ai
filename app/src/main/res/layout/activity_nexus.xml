@@ -1,0 +1,1793 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/nexusRoot"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#0A0B1A">
+
+    <!-- Top Navigation Bar -->
+    <LinearLayout
+        android:id="@+id/nexusTopBar"
+        android:layout_width="match_parent"
+        android:layout_height="64dp"
+        android:orientation="horizontal"
+        android:gravity="center_vertical"
+        android:paddingHorizontal="16dp"
+        android:background="#121528"
+        android:elevation="4dp"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <ImageButton
+            android:id="@+id/btnNexusBack"
+            android:layout_width="44dp"
+            android:layout_height="44dp"
+            android:background="?attr/selectableItemBackgroundBorderless"
+            android:src="@drawable/ic_back"
+            app:tint="#FFFFFF"
+            android:contentDescription="Back" />
+
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:orientation="vertical"
+            android:layout_marginStart="12dp">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="JARVIS NEXUS"
+                android:textColor="#FFFFFF"
+                android:textSize="18sp"
+                android:textStyle="bold"
+                android:letterSpacing="0.08"
+                android:fontFamily="sans-serif-medium" />
+
+            <TextView
+                android:id="@+id/tvNexusSubtitle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Wi-Fi LAN + Internet Remote Control"
+                android:textColor="#8B5CF6"
+                android:textSize="11sp" />
+        </LinearLayout>
+
+        <ImageButton
+            android:id="@+id/btnNexusSettings"
+            android:layout_width="44dp"
+            android:layout_height="44dp"
+            android:background="?attr/selectableItemBackgroundBorderless"
+            android:src="@drawable/ic_nav_settings"
+            app:tint="#A78BFA"
+            android:contentDescription="Security and Settings" />
+    </LinearLayout>
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:fillViewport="true"
+        android:clipToPadding="false"
+        android:paddingBottom="24dp"
+        app:layout_constraintTop_toBottomOf="@id/nexusTopBar"
+        app:layout_constraintBottom_toBottomOf="parent">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:padding="16dp">
+
+            <!-- 1. MODE SELECT PANE (STEPS 1 & 2) -->
+            <LinearLayout
+                android:id="@+id/paneModeSelect"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <!-- Local Server Banner -->
+                <LinearLayout
+                    android:id="@+id/cardServerStatus"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:background="@drawable/bg_nexus_card"
+                    android:padding="16dp"
+                    android:gravity="center_vertical"
+                    android:layout_marginBottom="16dp">
+
+                    <View
+                        android:id="@+id/dotServerGlow"
+                        android:layout_width="12dp"
+                        android:layout_height="12dp"
+                        android:background="@drawable/circle_cyan"
+                        android:layout_marginEnd="12dp" />
+
+                    <LinearLayout
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:orientation="vertical">
+
+                        <TextView
+                            android:id="@+id/tvServerTitle"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="LOCAL SERVER ACTIVE • LAN"
+                            android:textColor="#00E5FF"
+                            android:textSize="12sp"
+                            android:textStyle="bold" />
+
+                        <TextView
+                            android:id="@+id/tvServerIp"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Ready for connection on 192.168.1.105:8765"
+                            android:textColor="#94A3B8"
+                            android:textSize="12sp"
+                            android:layout_marginTop="2dp" />
+                    </LinearLayout>
+
+                    <Button
+                        android:id="@+id/btnToggleServer"
+                        android:layout_width="wrap_content"
+                        android:layout_height="36dp"
+                        android:text="RUNNING"
+                        android:textSize="11sp"
+                        android:textColor="#FFFFFF"
+                        android:background="@drawable/bg_nexus_purple_btn" />
+                </LinearLayout>
+
+                <!-- Section Header -->
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Wi-Fi Remote Control"
+                    android:textColor="#FFFFFF"
+                    android:textSize="20sp"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Connect and control your other device via Wi-Fi or Internet"
+                    android:textColor="#94A3B8"
+                    android:textSize="13sp"
+                    android:layout_marginTop="4dp"
+                    android:layout_marginBottom="16dp" />
+
+                <!-- Mode Card 1: LAN Mode -->
+                <LinearLayout
+                    android:id="@+id/btnSelectLanMode"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:background="@drawable/bg_nexus_card"
+                    android:padding="20dp"
+                    android:gravity="center_vertical"
+                    android:clickable="true"
+                    android:focusable="true"
+                    android:layout_marginBottom="12dp">
+
+                    <ImageView
+                        android:layout_width="38dp"
+                        android:layout_height="38dp"
+                        android:src="@drawable/ic_globe_more"
+                        app:tint="#55C7E8"
+                        android:layout_marginEnd="16dp" />
+
+                    <LinearLayout
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:orientation="vertical">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="LAN Mode"
+                            android:textColor="#FFFFFF"
+                            android:textSize="17sp"
+                            android:textStyle="bold" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Same Wi-Fi network"
+                            android:textColor="#94A3B8"
+                            android:textSize="13sp" />
+                    </LinearLayout>
+
+                    <ImageView
+                        android:layout_width="24dp"
+                        android:layout_height="24dp"
+                        android:src="@drawable/ic_arrow_right"
+                        app:tint="#8B5CF6" />
+                </LinearLayout>
+
+                <!-- Mode Card 2: Internet Mode -->
+                <LinearLayout
+                    android:id="@+id/btnSelectInternetMode"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:background="@drawable/bg_nexus_card"
+                    android:padding="20dp"
+                    android:gravity="center_vertical"
+                    android:clickable="true"
+                    android:focusable="true"
+                    android:layout_marginBottom="20dp">
+
+                    <ImageView
+                        android:layout_width="38dp"
+                        android:layout_height="38dp"
+                        android:src="@drawable/ic_globe_more"
+                        app:tint="#8B5CF6"
+                        android:layout_marginEnd="16dp" />
+
+                    <LinearLayout
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:orientation="vertical">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Internet Mode"
+                            android:textColor="#FFFFFF"
+                            android:textSize="17sp"
+                            android:textStyle="bold" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Anywhere in the world (Relay WSS)"
+                            android:textColor="#94A3B8"
+                            android:textSize="13sp" />
+                    </LinearLayout>
+
+                    <ImageView
+                        android:layout_width="24dp"
+                        android:layout_height="24dp"
+                        android:src="@drawable/ic_arrow_right"
+                        app:tint="#8B5CF6" />
+                </LinearLayout>
+
+                <!-- Action Shortcut Buttons -->
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:weightSum="2"
+                    android:layout_marginBottom="12dp">
+
+                    <Button
+                        android:id="@+id/btnQuickPair"
+                        android:layout_width="0dp"
+                        android:layout_height="48dp"
+                        android:layout_weight="1"
+                        android:layout_marginEnd="6dp"
+                        android:text="+ PAIR NEW DEVICE"
+                        android:textSize="12sp"
+                        android:textColor="#FFFFFF"
+                        android:background="@drawable/bg_nexus_purple_btn" />
+
+                    <Button
+                        android:id="@+id/btnQuickHistory"
+                        android:layout_width="0dp"
+                        android:layout_height="48dp"
+                        android:layout_weight="1"
+                        android:layout_marginStart="6dp"
+                        android:text="HISTORY"
+                        android:textSize="12sp"
+                        android:textColor="#FFFFFF"
+                        android:background="@drawable/bg_nexus_card" />
+                </LinearLayout>
+
+                <!-- My Devices Header -->
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="MY DEVICES"
+                    android:textColor="#8B7894"
+                    android:textSize="12sp"
+                    android:textStyle="bold"
+                    android:letterSpacing="0.1"
+                    android:layout_marginTop="8dp"
+                    android:layout_marginBottom="12dp" />
+
+                <!-- Dynamic Paired Devices Container -->
+                <LinearLayout
+                    android:id="@+id/layoutPairedDevices"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical" />
+
+                <!-- Empty State when no devices paired -->
+                <LinearLayout
+                    android:id="@+id/layoutNoPairedDevices"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:gravity="center"
+                    android:background="@drawable/bg_nexus_card"
+                    android:padding="24dp"
+                    android:layout_marginBottom="24dp">
+
+                    <ImageView
+                        android:layout_width="40dp"
+                        android:layout_height="40dp"
+                        android:src="@drawable/ic_nexus_wifi"
+                        app:tint="#64748B"
+                        android:layout_marginBottom="10dp" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="No Paired Devices Yet"
+                        android:textColor="#FFFFFF"
+                        android:textSize="14sp"
+                        android:textStyle="bold" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Tap '+ PAIR NEW DEVICE' to search nearby Wi-Fi devices or enter an IP address."
+                        android:textColor="#94A3B8"
+                        android:textSize="12sp"
+                        android:gravity="center"
+                        android:layout_marginTop="4dp" />
+                </LinearLayout>
+
+                <!-- Version Footer -->
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="JARVIS NEXUS v1.0 • TLS 1.3 End-to-End Encrypted"
+                    android:textColor="#64748B"
+                    android:textSize="11sp"
+                    android:layout_gravity="center_horizontal" />
+            </LinearLayout>
+
+            <!-- 2. ADD DEVICE PANE (STEP 3) -->
+            <LinearLayout
+                android:id="@+id/paneAddDevice"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:visibility="gone">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Add Device"
+                    android:textColor="#FFFFFF"
+                    android:textSize="20sp"
+                    android:textStyle="bold"
+                    android:layout_marginBottom="16dp" />
+
+                <!-- Tab Selectors: IP Address | Scan QR -->
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="48dp"
+                    android:orientation="horizontal"
+                    android:background="@drawable/bg_nexus_card"
+                    android:padding="4dp"
+                    android:layout_marginBottom="20dp">
+
+                    <Button
+                        android:id="@+id/tabAddIp"
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1"
+                        android:text="IP Address"
+                        android:textSize="13sp"
+                        android:textColor="#FFFFFF"
+                        android:background="@drawable/bg_nexus_purple_btn" />
+
+                    <Button
+                        android:id="@+id/tabAddQr"
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1"
+                        android:text="Scan QR"
+                        android:textSize="13sp"
+                        android:textColor="#94A3B8"
+                        android:background="@null" />
+                </LinearLayout>
+
+                <!-- Input View for IP Address Tab -->
+                <LinearLayout
+                    android:id="@+id/layoutIpFields"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Device IP Address"
+                        android:textColor="#94A3B8"
+                        android:textSize="13sp"
+                        android:layout_marginBottom="6dp" />
+
+                    <EditText
+                        android:id="@+id/etDeviceIp"
+                        android:layout_width="match_parent"
+                        android:layout_height="50dp"
+                        android:background="@drawable/bg_nexus_card"
+                        android:paddingHorizontal="16dp"
+                        android:textColor="#FFFFFF"
+                        android:hint="e.g. 192.168.1.105"
+                        android:textColorHint="#475569"
+                        android:inputType="textUri"
+                        android:layout_marginBottom="16dp" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Port"
+                        android:textColor="#94A3B8"
+                        android:textSize="13sp"
+                        android:layout_marginBottom="6dp" />
+
+                    <EditText
+                        android:id="@+id/etDevicePort"
+                        android:layout_width="match_parent"
+                        android:layout_height="50dp"
+                        android:background="@drawable/bg_nexus_card"
+                        android:paddingHorizontal="16dp"
+                        android:textColor="#FFFFFF"
+                        android:text="8765"
+                        android:inputType="number"
+                        android:layout_marginBottom="16dp" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Pairing Code"
+                        android:textColor="#94A3B8"
+                        android:textSize="13sp"
+                        android:layout_marginBottom="6dp" />
+
+                    <EditText
+                        android:id="@+id/etPairingCode"
+                        android:layout_width="match_parent"
+                        android:layout_height="50dp"
+                        android:background="@drawable/bg_nexus_card"
+                        android:paddingHorizontal="16dp"
+                        android:textColor="#FFFFFF"
+                        android:hint="6-digit code shown on target device"
+                        android:textColorHint="#475569"
+                        android:inputType="number"
+                        android:layout_marginBottom="24dp" />
+
+                    <Button
+                        android:id="@+id/btnConnectIp"
+                        android:layout_width="match_parent"
+                        android:layout_height="52dp"
+                        android:text="Connect"
+                        android:textSize="15sp"
+                        android:textStyle="bold"
+                        android:textColor="#FFFFFF"
+                        android:background="@drawable/bg_nexus_purple_btn" />
+
+                    <!-- Section: Discover Nearby Devices (Wi-Fi LAN) -->
+                    <LinearLayout
+                        android:id="@+id/cardNearbyDiscovery"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical"
+                        android:background="@drawable/bg_nexus_card"
+                        android:padding="16dp"
+                        android:layout_marginTop="16dp">
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="horizontal"
+                            android:gravity="center_vertical">
+
+                            <ImageView
+                                android:layout_width="24dp"
+                                android:layout_height="24dp"
+                                android:src="@drawable/ic_nexus_wifi"
+                                app:tint="#00E5FF"
+                                android:layout_marginEnd="10dp" />
+
+                            <TextView
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="1"
+                                android:text="Nearby Wi-Fi Devices"
+                                android:textColor="#FFFFFF"
+                                android:textSize="14sp"
+                                android:textStyle="bold" />
+
+                            <Button
+                                android:id="@+id/btnSearchNearby"
+                                android:layout_width="wrap_content"
+                                android:layout_height="36dp"
+                                android:text="SEARCH"
+                                android:textSize="11sp"
+                                android:textColor="#FFFFFF"
+                                android:background="@drawable/bg_nexus_purple_btn" />
+                        </LinearLayout>
+
+                        <TextView
+                            android:id="@+id/tvDiscoveryStatus"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Tap SEARCH to discover phones running JARVIS Host on this Wi-Fi."
+                            android:textColor="#94A3B8"
+                            android:textSize="12sp"
+                            android:layout_marginTop="6dp" />
+
+                        <LinearLayout
+                            android:id="@+id/layoutDiscoveredDevices"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="vertical"
+                            android:layout_marginTop="10dp" />
+                    </LinearLayout>
+                </LinearLayout>
+
+                <!-- QR View for QR Tab -->
+                <LinearLayout
+                    android:id="@+id/layoutQrFields"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:gravity="center"
+                    android:visibility="gone">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Host Device Pairing Credentials"
+                        android:textColor="#FFFFFF"
+                        android:textSize="16sp"
+                        android:textStyle="bold"
+                        android:layout_marginBottom="6dp" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Share this 6-digit code with the controller phone on your Wi-Fi network"
+                        android:textColor="#94A3B8"
+                        android:textSize="13sp"
+                        android:gravity="center"
+                        android:layout_marginBottom="16dp" />
+
+                    <ImageView
+                        android:layout_width="160dp"
+                        android:layout_height="160dp"
+                        android:background="@drawable/bg_nexus_card"
+                        android:src="@drawable/ic_scan_ocr"
+                        android:padding="28dp"
+                        app:tint="#8B5CF6" />
+
+                    <TextView
+                        android:id="@+id/tvGeneratedPairingCode"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="PAIRING CODE: 888888"
+                        android:textColor="#00E5FF"
+                        android:textSize="22sp"
+                        android:textStyle="bold"
+                        android:letterSpacing="0.1"
+                        android:layout_marginTop="16dp" />
+
+                    <Button
+                        android:id="@+id/btnRegenerateCode"
+                        android:layout_width="wrap_content"
+                        android:layout_height="40dp"
+                        android:layout_marginTop="12dp"
+                        android:text="REGENERATE CODE"
+                        android:textSize="11sp"
+                        android:textColor="#FFFFFF"
+                        android:background="@drawable/bg_nexus_card" />
+
+                    <Button
+                        android:id="@+id/btnSimulateQrScan"
+                        android:layout_width="match_parent"
+                        android:layout_height="48dp"
+                        android:layout_marginTop="20dp"
+                        android:text="CONNECT USING THIS CODE"
+                        android:textColor="#FFFFFF"
+                        android:background="@drawable/bg_nexus_purple_btn" />
+                </LinearLayout>
+            </LinearLayout>
+
+            <!-- 3. AUTHENTICATION / CONNECTING PANE (STEP 4) -->
+            <LinearLayout
+                android:id="@+id/paneConnecting"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:gravity="center_horizontal"
+                android:visibility="gone"
+                android:paddingVertical="32dp">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Connecting..."
+                    android:textColor="#FFFFFF"
+                    android:textSize="22sp"
+                    android:textStyle="bold"
+                    android:layout_marginBottom="32dp" />
+
+                <!-- Central Glowing Shield -->
+                <FrameLayout
+                    android:layout_width="140dp"
+                    android:layout_height="140dp"
+                    android:background="@drawable/bg_nexus_shield"
+                    android:layout_marginBottom="36dp">
+
+                    <ImageView
+                        android:id="@+id/ivConnectingShield"
+                        android:layout_width="64dp"
+                        android:layout_height="64dp"
+                        android:layout_gravity="center"
+                        android:src="@drawable/ic_settings_shield"
+                        app:tint="#55C7E8" />
+                </FrameLayout>
+
+                <!-- Checkmarks list -->
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:paddingHorizontal="24dp">
+
+                    <LinearLayout
+                        android:id="@+id/rowCheckIp"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal"
+                        android:gravity="center_vertical"
+                        android:layout_marginBottom="12dp">
+
+                        <ImageView
+                            android:id="@+id/ivCheckIp"
+                            android:layout_width="20dp"
+                            android:layout_height="20dp"
+                            android:src="@drawable/ic_checklist_tasks"
+                            app:tint="#10B981"
+                            android:layout_marginEnd="12dp" />
+
+                        <TextView
+                            android:id="@+id/tvCheckIp"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Checking IP address..."
+                            android:textColor="#FFFFFF"
+                            android:textSize="14sp" />
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:id="@+id/rowCheckCode"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal"
+                        android:gravity="center_vertical"
+                        android:layout_marginBottom="12dp">
+
+                        <ImageView
+                            android:id="@+id/ivCheckCode"
+                            android:layout_width="20dp"
+                            android:layout_height="20dp"
+                            android:src="@drawable/ic_checklist_tasks"
+                            app:tint="#10B981"
+                            android:layout_marginEnd="12dp" />
+
+                        <TextView
+                            android:id="@+id/tvCheckCode"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Verifying pairing code..."
+                            android:textColor="#FFFFFF"
+                            android:textSize="14sp" />
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:id="@+id/rowCheckTls"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal"
+                        android:gravity="center_vertical"
+                        android:layout_marginBottom="12dp">
+
+                        <ImageView
+                            android:id="@+id/ivCheckTls"
+                            android:layout_width="20dp"
+                            android:layout_height="20dp"
+                            android:src="@drawable/ic_checklist_tasks"
+                            app:tint="#10B981"
+                            android:layout_marginEnd="12dp" />
+
+                        <TextView
+                            android:id="@+id/tvCheckTls"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Establishing secure connection..."
+                            android:textColor="#FFFFFF"
+                            android:textSize="14sp" />
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:id="@+id/rowCheckDone"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal"
+                        android:gravity="center_vertical">
+
+                        <ImageView
+                            android:id="@+id/ivCheckDone"
+                            android:layout_width="20dp"
+                            android:layout_height="20dp"
+                            android:src="@drawable/ic_checklist_tasks"
+                            app:tint="#10B981"
+                            android:layout_marginEnd="12dp" />
+
+                        <TextView
+                            android:id="@+id/tvCheckDone"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Connection established!"
+                            android:textColor="#10B981"
+                            android:textStyle="bold"
+                            android:textSize="14sp" />
+                    </LinearLayout>
+                </LinearLayout>
+            </LinearLayout>
+
+            <!-- 4. CONNECTED DASHBOARD PANE (STEPS 5 & 6) -->
+            <LinearLayout
+                android:id="@+id/paneConnected"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:visibility="gone">
+
+                <!-- Header Row -->
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:gravity="center_vertical"
+                    android:layout_marginBottom="16dp">
+
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:text="Connected Device"
+                        android:textColor="#FFFFFF"
+                        android:textSize="18sp"
+                        android:textStyle="bold" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="● Online"
+                        android:textColor="#10B981"
+                        android:textSize="12sp"
+                        android:textStyle="bold"
+                        android:background="@drawable/bg_jarvis_chip"
+                        android:paddingHorizontal="10dp"
+                        android:paddingVertical="4dp" />
+                </LinearLayout>
+
+                <!-- Connected Device Card -->
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:background="@drawable/bg_nexus_card"
+                    android:padding="16dp"
+                    android:gravity="center_vertical"
+                    android:layout_marginBottom="16dp">
+
+                    <ImageView
+                        android:layout_width="40dp"
+                        android:layout_height="40dp"
+                        android:src="@drawable/ic_settings_apps"
+                        app:tint="#55C7E8"
+                        android:layout_marginEnd="14dp" />
+
+                    <LinearLayout
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:orientation="vertical">
+
+                        <TextView
+                            android:id="@+id/tvConnectedDeviceName"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Redmi Note 12"
+                            android:textColor="#FFFFFF"
+                            android:textSize="16sp"
+                            android:textStyle="bold" />
+
+                        <TextView
+                            android:id="@+id/tvConnectedDeviceIp"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="192.168.1.105 | Port: 8765"
+                            android:textColor="#94A3B8"
+                            android:textSize="12sp" />
+                    </LinearLayout>
+                </LinearLayout>
+
+                <!-- 4 Stat Tiles Grid (Battery, Wi-Fi, Android, Online) -->
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:weightSum="2"
+                    android:layout_marginBottom="12dp">
+
+                    <!-- Tile 1: Battery -->
+                    <LinearLayout
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:layout_marginEnd="6dp"
+                        android:background="@drawable/bg_nexus_tile"
+                        android:orientation="vertical"
+                        android:padding="14dp">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Battery"
+                            android:textColor="#94A3B8"
+                            android:textSize="12sp" />
+
+                        <TextView
+                            android:id="@+id/tvTileBattery"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="78%"
+                            android:textColor="#10B981"
+                            android:textSize="20sp"
+                            android:textStyle="bold"
+                            android:layout_marginTop="4dp" />
+                    </LinearLayout>
+
+                    <!-- Tile 2: Wi-Fi -->
+                    <LinearLayout
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:layout_marginStart="6dp"
+                        android:background="@drawable/bg_nexus_tile"
+                        android:orientation="vertical"
+                        android:padding="14dp">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Wi-Fi"
+                            android:textColor="#94A3B8"
+                            android:textSize="12sp" />
+
+                        <TextView
+                            android:id="@+id/tvTileWifi"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Connected"
+                            android:textColor="#55C7E8"
+                            android:textSize="17sp"
+                            android:textStyle="bold"
+                            android:layout_marginTop="4dp" />
+                    </LinearLayout>
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:weightSum="2"
+                    android:layout_marginBottom="16dp">
+
+                    <!-- Tile 3: Android -->
+                    <LinearLayout
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:layout_marginEnd="6dp"
+                        android:background="@drawable/bg_nexus_tile"
+                        android:orientation="vertical"
+                        android:padding="14dp">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Android"
+                            android:textColor="#94A3B8"
+                            android:textSize="12sp" />
+
+                        <TextView
+                            android:id="@+id/tvTileAndroid"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="14"
+                            android:textColor="#A78BFA"
+                            android:textSize="20sp"
+                            android:textStyle="bold"
+                            android:layout_marginTop="4dp" />
+                    </LinearLayout>
+
+                    <!-- Tile 4: Online -->
+                    <LinearLayout
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:layout_marginStart="6dp"
+                        android:background="@drawable/bg_nexus_tile"
+                        android:orientation="vertical"
+                        android:padding="14dp">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Online"
+                            android:textColor="#94A3B8"
+                            android:textSize="12sp" />
+
+                        <TextView
+                            android:id="@+id/tvTileOnlineTime"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="2m ago"
+                            android:textColor="#F59E0B"
+                            android:textSize="17sp"
+                            android:textStyle="bold"
+                            android:layout_marginTop="4dp" />
+                    </LinearLayout>
+                </LinearLayout>
+
+                <!-- Disconnect Button -->
+                <Button
+                    android:id="@+id/btnDisconnectActive"
+                    android:layout_width="match_parent"
+                    android:layout_height="48dp"
+                    android:text="Disconnect"
+                    android:textColor="#FF4D5E"
+                    android:textStyle="bold"
+                    android:background="@drawable/bg_nexus_card"
+                    android:layout_marginBottom="24dp" />
+
+                <!-- Remote Control Options List -->
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Remote Control"
+                    android:textColor="#FFFFFF"
+                    android:textSize="18sp"
+                    android:textStyle="bold"
+                    android:layout_marginBottom="12dp" />
+
+                <!-- Item 1: Remote Chat -->
+                <LinearLayout
+                    android:id="@+id/optRemoteChat"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:background="@drawable/bg_nexus_card"
+                    android:padding="16dp"
+                    android:gravity="center_vertical"
+                    android:clickable="true"
+                    android:focusable="true"
+                    android:layout_marginBottom="8dp">
+
+                    <ImageView
+                        android:layout_width="26dp"
+                        android:layout_height="26dp"
+                        android:src="@drawable/ic_chat_bubble"
+                        app:tint="#8B5CF6"
+                        android:layout_marginEnd="14dp" />
+
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:text="Remote Chat"
+                        android:textColor="#FFFFFF"
+                        android:textSize="15sp"
+                        android:textStyle="bold" />
+
+                    <ImageView
+                        android:layout_width="20dp"
+                        android:layout_height="20dp"
+                        android:src="@drawable/ic_arrow_right"
+                        app:tint="#64748B" />
+                </LinearLayout>
+
+                <!-- Item 2: Screen Share -->
+                <LinearLayout
+                    android:id="@+id/optScreenShare"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:background="@drawable/bg_nexus_card"
+                    android:padding="16dp"
+                    android:gravity="center_vertical"
+                    android:clickable="true"
+                    android:focusable="true"
+                    android:layout_marginBottom="8dp">
+
+                    <ImageView
+                        android:layout_width="26dp"
+                        android:layout_height="26dp"
+                        android:src="@drawable/ic_screen_share"
+                        app:tint="#00E5FF"
+                        android:layout_marginEnd="14dp" />
+
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:text="Screen Share"
+                        android:textColor="#FFFFFF"
+                        android:textSize="15sp"
+                        android:textStyle="bold" />
+
+                    <ImageView
+                        android:layout_width="20dp"
+                        android:layout_height="20dp"
+                        android:src="@drawable/ic_arrow_right"
+                        app:tint="#64748B" />
+                </LinearLayout>
+
+                <!-- Item 3: Camera Access -->
+                <LinearLayout
+                    android:id="@+id/optCameraAccess"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:background="@drawable/bg_nexus_card"
+                    android:padding="16dp"
+                    android:gravity="center_vertical"
+                    android:clickable="true"
+                    android:focusable="true"
+                    android:layout_marginBottom="8dp">
+
+                    <ImageView
+                        android:layout_width="26dp"
+                        android:layout_height="26dp"
+                        android:src="@drawable/ic_camera"
+                        app:tint="#E879B5"
+                        android:layout_marginEnd="14dp" />
+
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:text="Camera Access"
+                        android:textColor="#FFFFFF"
+                        android:textSize="15sp"
+                        android:textStyle="bold" />
+
+                    <ImageView
+                        android:layout_width="20dp"
+                        android:layout_height="20dp"
+                        android:src="@drawable/ic_arrow_right"
+                        app:tint="#64748B" />
+                </LinearLayout>
+
+                <!-- Item 4: File Transfer -->
+                <LinearLayout
+                    android:id="@+id/optFileTransfer"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:background="@drawable/bg_nexus_card"
+                    android:padding="16dp"
+                    android:gravity="center_vertical"
+                    android:clickable="true"
+                    android:focusable="true"
+                    android:layout_marginBottom="8dp">
+
+                    <ImageView
+                        android:layout_width="26dp"
+                        android:layout_height="26dp"
+                        android:src="@drawable/ic_attachment"
+                        app:tint="#FF805D"
+                        android:layout_marginEnd="14dp" />
+
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:text="File Transfer"
+                        android:textColor="#FFFFFF"
+                        android:textSize="15sp"
+                        android:textStyle="bold" />
+
+                    <ImageView
+                        android:layout_width="20dp"
+                        android:layout_height="20dp"
+                        android:src="@drawable/ic_arrow_right"
+                        app:tint="#64748B" />
+                </LinearLayout>
+
+                <!-- Item 5: Device Info -->
+                <LinearLayout
+                    android:id="@+id/optDeviceInfo"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:background="@drawable/bg_nexus_card"
+                    android:padding="16dp"
+                    android:gravity="center_vertical"
+                    android:clickable="true"
+                    android:focusable="true"
+                    android:layout_marginBottom="8dp">
+
+                    <ImageView
+                        android:layout_width="26dp"
+                        android:layout_height="26dp"
+                        android:src="@drawable/ic_globe_more"
+                        app:tint="#F59E0B"
+                        android:layout_marginEnd="14dp" />
+
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:text="Device Info"
+                        android:textColor="#FFFFFF"
+                        android:textSize="15sp"
+                        android:textStyle="bold" />
+
+                    <ImageView
+                        android:layout_width="20dp"
+                        android:layout_height="20dp"
+                        android:src="@drawable/ic_arrow_right"
+                        app:tint="#64748B" />
+                </LinearLayout>
+
+                <!-- Item 6: Media Control -->
+                <LinearLayout
+                    android:id="@+id/optMediaControl"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:background="@drawable/bg_nexus_card"
+                    android:padding="16dp"
+                    android:gravity="center_vertical"
+                    android:clickable="true"
+                    android:focusable="true"
+                    android:layout_marginBottom="8dp">
+
+                    <ImageView
+                        android:layout_width="26dp"
+                        android:layout_height="26dp"
+                        android:src="@drawable/ic_tts_play"
+                        app:tint="#10B981"
+                        android:layout_marginEnd="14dp" />
+
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:text="Media Control"
+                        android:textColor="#FFFFFF"
+                        android:textSize="15sp"
+                        android:textStyle="bold" />
+
+                    <ImageView
+                        android:layout_width="20dp"
+                        android:layout_height="20dp"
+                        android:src="@drawable/ic_arrow_right"
+                        app:tint="#64748B" />
+                </LinearLayout>
+
+                <!-- Item: Remote Wi-Fi & Network Control (Firestore Cloud + LAN) -->
+                <LinearLayout
+                    android:id="@+id/optRemoteWifiControl"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:background="@drawable/bg_nexus_card"
+                    android:padding="16dp"
+                    android:gravity="center_vertical"
+                    android:clickable="true"
+                    android:focusable="true"
+                    android:layout_marginBottom="8dp">
+
+                    <ImageView
+                        android:layout_width="26dp"
+                        android:layout_height="26dp"
+                        android:src="@drawable/ic_nexus_wifi"
+                        app:tint="#10B981"
+                        android:layout_marginEnd="14dp" />
+
+                    <LinearLayout
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:orientation="vertical">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Remote Wi-Fi &amp; Network Control"
+                            android:textColor="#FFFFFF"
+                            android:textSize="15sp"
+                            android:textStyle="bold" />
+
+                        <TextView
+                            android:id="@+id/tvRemoteWifiStatusSub"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Toggle Wi-Fi • Sync Telemetry • Cloud Relay"
+                            android:textColor="#94A3B8"
+                            android:textSize="11sp"
+                            android:layout_marginTop="2dp" />
+                    </LinearLayout>
+
+                    <Button
+                        android:id="@+id/btnQuickWifiToggle"
+                        android:layout_width="wrap_content"
+                        android:layout_height="34dp"
+                        android:text="TOGGLE"
+                        android:textSize="10sp"
+                        android:textColor="#FFFFFF"
+                        android:background="@drawable/bg_nexus_purple_btn"
+                        android:paddingStart="12dp"
+                        android:paddingEnd="12dp" />
+                </LinearLayout>
+
+                <!-- Item 6b: Remote Device Lock & Safety -->
+                <LinearLayout
+                    android:id="@+id/optRemoteDeviceLock"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:background="@drawable/bg_nexus_card"
+                    android:padding="16dp"
+                    android:layout_marginBottom="12dp"
+                    android:gravity="center_vertical"
+                    android:clickable="true"
+                    android:focusable="true">
+
+                    <ImageView
+                        android:layout_width="26dp"
+                        android:layout_height="26dp"
+                        android:src="@drawable/ic_settings_shield"
+                        app:tint="#EF4444"
+                        android:layout_marginEnd="14dp" />
+
+                    <LinearLayout
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:orientation="vertical">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Remote Lock &amp; Safety Hub"
+                            android:textColor="#FFFFFF"
+                            android:textSize="15sp"
+                            android:textStyle="bold" />
+
+                        <TextView
+                            android:id="@+id/tvRemoteLockSub"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Instant Screen Lock • Ring Alarm • Flashlight"
+                            android:textColor="#94A3B8"
+                            android:textSize="11sp"
+                            android:layout_marginTop="2dp" />
+                    </LinearLayout>
+
+                    <Button
+                        android:id="@+id/btnQuickRemoteLock"
+                        android:layout_width="wrap_content"
+                        android:layout_height="34dp"
+                        android:text="LOCK"
+                        android:textSize="10sp"
+                        android:textColor="#FFFFFF"
+                        android:background="@drawable/bg_nexus_purple_btn"
+                        android:backgroundTint="#EF4444"
+                        android:paddingStart="12dp"
+                        android:paddingEnd="12dp" />
+                </LinearLayout>
+
+                <!-- Item 7: More Options -->
+                <LinearLayout
+                    android:id="@+id/optMoreOptions"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:background="@drawable/bg_nexus_card"
+                    android:padding="16dp"
+                    android:gravity="center_vertical"
+                    android:clickable="true"
+                    android:focusable="true">
+
+                    <ImageView
+                        android:layout_width="26dp"
+                        android:layout_height="26dp"
+                        android:src="@drawable/ic_nav_settings"
+                        app:tint="#A78BFA"
+                        android:layout_marginEnd="14dp" />
+
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:text="Security &amp; Permissions"
+                        android:textColor="#FFFFFF"
+                        android:textSize="15sp"
+                        android:textStyle="bold" />
+
+                    <ImageView
+                        android:layout_width="20dp"
+                        android:layout_height="20dp"
+                        android:src="@drawable/ic_arrow_right"
+                        app:tint="#64748B" />
+                </LinearLayout>
+            </LinearLayout>
+
+            <!-- 5. SCREEN SHARE LIVE VIEWER PANE (STEP 7) -->
+            <LinearLayout
+                android:id="@+id/paneScreenShare"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:visibility="gone">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:gravity="center_vertical"
+                    android:layout_marginBottom="16dp">
+
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:text="Screen Share"
+                        android:textColor="#FFFFFF"
+                        android:textSize="18sp"
+                        android:textStyle="bold" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="● Live"
+                        android:textColor="#10B981"
+                        android:textSize="12sp"
+                        android:textStyle="bold"
+                        android:background="@drawable/bg_jarvis_chip"
+                        android:paddingHorizontal="10dp"
+                        android:paddingVertical="4dp" />
+                </LinearLayout>
+
+                <!-- Phone Mockup Frame -->
+                <FrameLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="360dp"
+                    android:background="@drawable/bg_nexus_card"
+                    android:layout_marginBottom="16dp">
+
+                    <ImageView
+                        android:id="@+id/ivScreenShareFrame"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:scaleType="centerInside"
+                        android:src="@drawable/ic_screen_share"
+                        app:tint="#55C7E8"
+                        android:padding="48dp" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="bottom|center_horizontal"
+                        android:layout_marginBottom="16dp"
+                        android:text="Live feed streamed securely via TLS"
+                        android:textColor="#94A3B8"
+                        android:textSize="12sp" />
+                </FrameLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:weightSum="3">
+
+                    <Button
+                        android:id="@+id/btnScreenShareStop"
+                        android:layout_width="0dp"
+                        android:layout_height="48dp"
+                        android:layout_weight="1"
+                        android:layout_marginEnd="4dp"
+                        android:text="Stop"
+                        android:textColor="#FFFFFF"
+                        android:background="@drawable/bg_jarvis_mic_muted" />
+
+                    <Button
+                        android:id="@+id/btnScreenShareFullscreen"
+                        android:layout_width="0dp"
+                        android:layout_height="48dp"
+                        android:layout_weight="1"
+                        android:layout_marginHorizontal="4dp"
+                        android:text="Full Screen"
+                        android:textColor="#FFFFFF"
+                        android:background="@drawable/bg_nexus_tile" />
+
+                    <Button
+                        android:id="@+id/btnScreenShareSettings"
+                        android:layout_width="0dp"
+                        android:layout_height="48dp"
+                        android:layout_weight="1"
+                        android:layout_marginStart="4dp"
+                        android:text="Settings"
+                        android:textColor="#FFFFFF"
+                        android:background="@drawable/bg_nexus_card" />
+                </LinearLayout>
+            </LinearLayout>
+
+            <!-- 6. FILE TRANSFER PANE (STEP 8) -->
+            <LinearLayout
+                android:id="@+id/paneFileTransfer"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:visibility="gone">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="File Transfer"
+                    android:textColor="#FFFFFF"
+                    android:textSize="18sp"
+                    android:textStyle="bold"
+                    android:layout_marginBottom="16dp" />
+
+                <!-- Tabs: Send | Receive -->
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="44dp"
+                    android:orientation="horizontal"
+                    android:background="@drawable/bg_nexus_card"
+                    android:padding="4dp"
+                    android:layout_marginBottom="16dp">
+
+                    <Button
+                        android:id="@+id/tabFileSend"
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1"
+                        android:text="Send"
+                        android:textColor="#FFFFFF"
+                        android:background="@drawable/bg_nexus_purple_btn" />
+
+                    <Button
+                        android:id="@+id/tabFileReceive"
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1"
+                        android:text="Receive"
+                        android:textColor="#94A3B8"
+                        android:background="@null" />
+                </LinearLayout>
+
+                <!-- Category Items -->
+                <LinearLayout
+                    android:id="@+id/btnCategoryImages"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:background="@drawable/bg_nexus_card"
+                    android:padding="16dp"
+                    android:gravity="center_vertical"
+                    android:layout_marginBottom="8dp">
+
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:text="Images &amp; Photos"
+                        android:textColor="#FFFFFF"
+                        android:textSize="15sp"
+                        android:textStyle="bold" />
+
+                    <ImageView
+                        android:layout_width="20dp"
+                        android:layout_height="20dp"
+                        android:src="@drawable/ic_arrow_right"
+                        app:tint="#64748B" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/btnCategoryDocuments"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:background="@drawable/bg_nexus_card"
+                    android:padding="16dp"
+                    android:gravity="center_vertical"
+                    android:layout_marginBottom="8dp">
+
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:text="Documents &amp; PDFs"
+                        android:textColor="#FFFFFF"
+                        android:textSize="15sp"
+                        android:textStyle="bold" />
+
+                    <ImageView
+                        android:layout_width="20dp"
+                        android:layout_height="20dp"
+                        android:src="@drawable/ic_arrow_right"
+                        app:tint="#64748B" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/btnCategoryVideos"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:background="@drawable/bg_nexus_card"
+                    android:padding="16dp"
+                    android:gravity="center_vertical"
+                    android:layout_marginBottom="8dp">
+
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:text="Videos &amp; Media"
+                        android:textColor="#FFFFFF"
+                        android:textSize="15sp"
+                        android:textStyle="bold" />
+
+                    <ImageView
+                        android:layout_width="20dp"
+                        android:layout_height="20dp"
+                        android:src="@drawable/ic_arrow_right"
+                        app:tint="#64748B" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/btnCategoryApps"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:background="@drawable/bg_nexus_card"
+                    android:padding="16dp"
+                    android:gravity="center_vertical"
+                    android:layout_marginBottom="24dp">
+
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:text="Apps &amp; Packages"
+                        android:textColor="#FFFFFF"
+                        android:textSize="15sp"
+                        android:textStyle="bold" />
+
+                    <ImageView
+                        android:layout_width="20dp"
+                        android:layout_height="20dp"
+                        android:src="@drawable/ic_arrow_right"
+                        app:tint="#64748B" />
+                </LinearLayout>
+
+                <Button
+                    android:id="@+id/btnSelectFileToTransfer"
+                    android:layout_width="match_parent"
+                    android:layout_height="50dp"
+                    android:text="Select File"
+                    android:textColor="#FFFFFF"
+                    android:textStyle="bold"
+                    android:background="@drawable/bg_nexus_purple_btn" />
+            </LinearLayout>
+
+            <!-- 7. REMOTE CHAT PANE (STEP 9) -->
+            <LinearLayout
+                android:id="@+id/paneRemoteChat"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:visibility="gone">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:gravity="center_vertical"
+                    android:layout_marginBottom="12dp">
+
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:text="Remote Chat"
+                        android:textColor="#FFFFFF"
+                        android:textSize="18sp"
+                        android:textStyle="bold" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="● Online"
+                        android:textColor="#10B981"
+                        android:textSize="12sp"
+                        android:textStyle="bold" />
+                </LinearLayout>
+
+                <!-- Messages Container -->
+                <LinearLayout
+                    android:id="@+id/layoutRemoteChatMessages"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:layout_marginBottom="16dp" />
+
+                <!-- Input Box with Mic & Send -->
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="52dp"
+                    android:orientation="horizontal"
+                    android:background="@drawable/bg_nexus_card"
+                    android:paddingHorizontal="12dp"
+                    android:gravity="center_vertical">
+
+                    <EditText
+                        android:id="@+id/etRemoteChatInput"
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1"
+                        android:background="@null"
+                        android:hint="Type a message..."
+                        android:textColorHint="#64748B"
+                        android:textColor="#FFFFFF"
+                        android:textSize="14sp" />
+
+                    <ImageButton
+                        android:id="@+id/btnRemoteChatMic"
+                        android:layout_width="40dp"
+                        android:layout_height="40dp"
+                        android:background="?attr/selectableItemBackgroundBorderless"
+                        android:src="@drawable/ic_mic_jarvis"
+                        app:tint="#8B5CF6"
+                        android:contentDescription="Voice Input" />
+
+                    <ImageButton
+                        android:id="@+id/btnRemoteChatSend"
+                        android:layout_width="40dp"
+                        android:layout_height="40dp"
+                        android:background="?attr/selectableItemBackgroundBorderless"
+                        android:src="@drawable/ic_send_up"
+                        app:tint="#00E5FF"
+                        android:contentDescription="Send" />
+                </LinearLayout>
+            </LinearLayout>
+
+            <!-- 8. CONNECTION HISTORY PANE (STEP 11) -->
+            <LinearLayout
+                android:id="@+id/paneHistory"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:visibility="gone">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Connection History"
+                    android:textColor="#FFFFFF"
+                    android:textSize="18sp"
+                    android:textStyle="bold"
+                    android:layout_marginBottom="16dp" />
+
+                <LinearLayout
+                    android:id="@+id/layoutHistoryItems"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical" />
+            </LinearLayout>
+
+            <!-- 9. SECURITY & PERMISSIONS PANE (STEP 12) -->
+            <LinearLayout
+                android:id="@+id/paneSecurity"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:visibility="gone">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Security &amp; Permissions"
+                    android:textColor="#FFFFFF"
+                    android:textSize="18sp"
+                    android:textStyle="bold"
+                    android:layout_marginBottom="16dp" />
+
+                <LinearLayout
+                    android:id="@+id/layoutCapabilitiesList"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:layout_marginBottom="24dp" />
+
+                <Button
+                    android:id="@+id/btnDisconnectAllGlobal"
+                    android:layout_width="match_parent"
+                    android:layout_height="50dp"
+                    android:text="Disconnect All Sessions"
+                    android:textColor="#FFFFFF"
+                    android:textStyle="bold"
+                    android:background="@drawable/bg_jarvis_mic_muted" />
+            </LinearLayout>
+        </LinearLayout>
+    </ScrollView>
+
+    <!-- DISCONNECTED MODAL (STEP 10) -->
+    <LinearLayout
+        android:id="@+id/layoutDisconnectedModal"
+        android:layout_width="300dp"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:gravity="center"
+        android:background="@drawable/bg_nexus_card"
+        android:padding="28dp"
+        android:elevation="16dp"
+        android:visibility="gone"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent">
+
+        <ImageView
+            android:layout_width="72dp"
+            android:layout_height="72dp"
+            android:src="@drawable/ic_verified_badge"
+            app:tint="#10B981"
+            android:layout_marginBottom="16dp" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Disconnected"
+            android:textColor="#FFFFFF"
+            android:textSize="20sp"
+            android:textStyle="bold" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Connection closed successfully"
+            android:textColor="#94A3B8"
+            android:textSize="13sp"
+            android:layout_marginTop="4dp"
+            android:layout_marginBottom="24dp" />
+
+        <Button
+            android:id="@+id/btnOkDisconnected"
+            android:layout_width="140dp"
+            android:layout_height="44dp"
+            android:text="OK"
+            android:textColor="#FFFFFF"
+            android:textStyle="bold"
+            android:background="@drawable/bg_nexus_purple_btn" />
+    </LinearLayout>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

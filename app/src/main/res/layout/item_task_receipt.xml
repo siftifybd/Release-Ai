@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginBottom="12dp"
+    android:background="@drawable/bg_jarvis_action_card"
+    android:orientation="vertical"
+    android:padding="16dp">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:gravity="center_vertical">
+
+        <TextView
+            android:id="@+id/tvReceiptId"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="#RC-8591"
+            android:textColor="?attr/themeAccent"
+            android:textSize="11sp"
+            android:textStyle="bold"
+            android:fontFamily="monospace" />
+
+        <View
+            android:layout_width="0dp"
+            android:layout_height="1dp"
+            android:layout_weight="1" />
+
+        <TextView
+            android:id="@+id/tvReceiptStatusBadge"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@drawable/bg_jarvis_status_badge_green"
+            android:paddingHorizontal="10dp"
+            android:paddingVertical="4dp"
+            android:text="VERIFIED PROOF"
+            android:textColor="#FFFFFF"
+            android:textSize="10sp"
+            android:textStyle="bold"
+            android:letterSpacing="0.08"
+            android:fontFamily="monospace" />
+    </LinearLayout>
+
+    <TextView
+        android:id="@+id/tvReceiptTaskName"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:text="Open YouTube &amp; Search"
+        android:textColor="?attr/themeTextPrimary"
+        android:textSize="15sp"
+        android:textStyle="bold" />
+
+    <TextView
+        android:id="@+id/tvReceiptTimeAndDuration"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="2dp"
+        android:text="Executed: Today 10:24 • Duration: 1240ms"
+        android:textColor="?attr/themeTextMuted"
+        android:textSize="11sp" />
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:layout_marginVertical="10dp"
+        android:background="#22FFFFFF" />
+
+    <TextView
+        android:id="@+id/tvReceiptSteps"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="• Resolve app package 'com.google.android.youtube'\n• Intent dispatch success\n• Target input focus verified by AccessibilityNodeInfo"
+        android:textColor="?attr/themeTextPrimary"
+        android:textSize="12sp"
+        android:lineSpacingExtra="2dp" />
+
+    <TextView
+        android:id="@+id/tvReceiptEvidence"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:background="#15FFFFFF"
+        android:padding="8dp"
+        android:text="Accessibility verified node 'search_query' present with active text cursor."
+        android:textColor="?attr/themeTextMuted"
+        android:textSize="11sp"
+        android:fontFamily="monospace" />
+
+</LinearLayout>

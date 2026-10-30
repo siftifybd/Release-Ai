@@ -1,0 +1,217 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="?attr/themeBg"
+    android:orientation="vertical"
+    android:padding="16dp">
+
+    <!-- Top Action Bar -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:gravity="center_vertical">
+
+        <ImageButton
+            android:id="@+id/btnBackPlanner"
+            android:layout_width="44dp"
+            android:layout_height="44dp"
+            android:background="@drawable/bg_jarvis_icon_square"
+            android:src="@drawable/ic_back"
+            app:tint="?attr/themeTextPrimary"
+            android:contentDescription="Back" />
+
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:layout_marginStart="14dp"
+            android:orientation="vertical">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="DAILY PLANNER &amp; ROUTINES"
+                android:textColor="?attr/themeTextPrimary"
+                android:textSize="14sp"
+                android:textStyle="bold"
+                android:letterSpacing="0.08"
+                android:fontFamily="sans-serif-medium" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="দৈনিক রুটিন ও রিমাইন্ডার ইঞ্জিন"
+                android:textColor="?attr/themeTextMuted"
+                android:textSize="11sp" />
+        </LinearLayout>
+
+        <Button
+            android:id="@+id/btnVoiceBriefingPlanner"
+            android:layout_width="wrap_content"
+            android:layout_height="36dp"
+            android:background="@drawable/bg_jarvis_pill_button"
+            app:backgroundTint="@null"
+            android:text="BRIEFING 🔊"
+            android:textColor="#FFFFFF"
+            android:textSize="11sp"
+            android:textStyle="bold" />
+    </LinearLayout>
+
+    <!-- Overview Counters -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="14dp"
+        android:orientation="horizontal">
+
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:layout_marginEnd="6dp"
+            android:background="@drawable/bg_jarvis_card"
+            android:padding="12dp"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/tvPlannerPendingCount"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="2"
+                android:textColor="?attr/themeAccent"
+                android:textSize="20sp"
+                android:textStyle="bold"
+                android:fontFamily="monospace" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="PENDING PROTOCOLS"
+                android:textColor="?attr/themeTextMuted"
+                android:textSize="10sp"
+                android:textStyle="bold"
+                android:fontFamily="monospace" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:layout_marginStart="6dp"
+            android:background="@drawable/bg_jarvis_card"
+            android:padding="12dp"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/tvPlannerCompletedCount"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="1"
+                android:textColor="#00E676"
+                android:textSize="20sp"
+                android:textStyle="bold"
+                android:fontFamily="monospace" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="COMPLETED"
+                android:textColor="?attr/themeTextMuted"
+                android:textSize="10sp"
+                android:textStyle="bold"
+                android:fontFamily="monospace" />
+        </LinearLayout>
+    </LinearLayout>
+
+    <!-- Quick Add Input Card -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="12dp"
+        android:background="@drawable/bg_jarvis_card"
+        android:padding="12dp"
+        android:orientation="vertical">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="SCHEDULE NEW TASK"
+            android:textColor="?attr/themeAccent"
+            android:textSize="10sp"
+            android:letterSpacing="0.12"
+            android:textStyle="bold"
+            android:fontFamily="monospace" />
+
+        <EditText
+            android:id="@+id/etNewTaskTitle"
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            android:layout_marginTop="6dp"
+            android:background="@drawable/bg_input_field"
+            android:hint="Protocol or task title (e.g. Study, Meeting)..."
+            android:textColor="?attr/themeTextPrimary"
+            android:textColorHint="?attr/themeTextMuted"
+            android:textSize="12sp"
+            android:paddingHorizontal="10dp"
+            android:maxLines="1"
+            android:inputType="text" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:orientation="horizontal"
+            android:gravity="center_vertical">
+
+            <EditText
+                android:id="@+id/etNewTaskTime"
+                android:layout_width="0dp"
+                android:layout_height="36dp"
+                android:layout_weight="1"
+                android:background="@drawable/bg_input_field"
+                android:hint="Time (e.g. 17:00)"
+                android:textColor="?attr/themeTextPrimary"
+                android:textColorHint="?attr/themeTextMuted"
+                android:textSize="11sp"
+                android:paddingHorizontal="10dp"
+                android:maxLines="1"
+                android:inputType="text" />
+
+            <Button
+                android:id="@+id/btnAddNewTask"
+                android:layout_width="wrap_content"
+                android:layout_height="36dp"
+                android:layout_marginStart="8dp"
+                android:background="@drawable/bg_jarvis_pill_button"
+                app:backgroundTint="@null"
+                android:text="+ ADD PROTOCOL"
+                android:textColor="#FFFFFF"
+                android:textSize="10sp"
+                android:textStyle="bold" />
+        </LinearLayout>
+    </LinearLayout>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="14dp"
+        android:layout_marginBottom="6dp"
+        android:text="SCHEDULED PROTOCOLS"
+        android:textColor="?attr/themeTextMuted"
+        android:textSize="10sp"
+        android:letterSpacing="0.12"
+        android:textStyle="bold"
+        android:fontFamily="monospace" />
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/rvPlannerTasks"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:clipToPadding="false"
+        android:paddingBottom="24dp" />
+
+</LinearLayout>

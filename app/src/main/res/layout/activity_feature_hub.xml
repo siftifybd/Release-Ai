@@ -1,0 +1,173 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#0A0204"
+    android:orientation="vertical"
+    android:fitsSystemWindows="true">
+
+    <!-- Header Toolbar -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="#160306"
+        android:paddingHorizontal="16dp"
+        android:paddingVertical="12dp"
+        android:gravity="center_vertical"
+        android:orientation="horizontal">
+
+        <ImageButton
+            android:id="@+id/btnBack"
+            android:layout_width="36dp"
+            android:layout_height="36dp"
+            android:background="?attr/selectableItemBackgroundBorderless"
+            android:src="@drawable/ic_back"
+            app:tint="#FFFFFF"
+            android:contentDescription="Back" />
+
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:layout_marginStart="12dp"
+            android:orientation="vertical">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="JARVIS 500+ FEATURE HUB"
+                android:textColor="#FF2A4B"
+                android:textSize="15sp"
+                android:textStyle="bold"
+                android:fontFamily="monospace" />
+
+            <TextView
+                android:id="@+id/tvSubtitle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="25 Categories • 500 Special Capabilities"
+                android:textColor="#AAAAAA"
+                android:textSize="11sp" />
+        </LinearLayout>
+
+        <ImageButton
+            android:id="@+id/btnResetCategory"
+            android:layout_width="36dp"
+            android:layout_height="36dp"
+            android:background="?attr/selectableItemBackgroundBorderless"
+            android:src="@drawable/ic_settings_apps"
+            app:tint="#00E5FF"
+            android:visibility="gone"
+            android:contentDescription="Reset Category" />
+    </LinearLayout>
+
+    <!-- Search Input -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingHorizontal="16dp"
+        android:paddingTop="12dp">
+
+        <EditText
+            android:id="@+id/etSearch"
+            android:layout_width="match_parent"
+            android:layout_height="44dp"
+            android:background="@drawable/bg_jarvis_row_item"
+            android:hint="Search 500 features by title, category, permission…"
+            android:textColorHint="#666666"
+            android:textColor="#FFFFFF"
+            android:textSize="12sp"
+            android:paddingHorizontal="14dp"
+            android:drawableStart="@android:drawable/ic_menu_search"
+            android:drawablePadding="10dp"
+            android:singleLine="true"
+            android:imeOptions="actionSearch" />
+    </LinearLayout>
+
+    <!-- Filter Chips Container -->
+    <HorizontalScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:scrollbars="none"
+        android:paddingHorizontal="16dp"
+        android:paddingVertical="10dp">
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/chipAll"
+                style="@style/Widget.Material3.Button.OutlinedButton"
+                android:layout_width="wrap_content"
+                android:layout_height="36dp"
+                android:text="All (500)"
+                android:textSize="10sp"
+                android:textColor="#FFFFFF"
+                app:strokeColor="#FF2A4B"
+                app:backgroundTint="#FF2A4B" />
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/chipStarred"
+                style="@style/Widget.Material3.Button.OutlinedButton"
+                android:layout_width="wrap_content"
+                android:layout_height="36dp"
+                android:layout_marginStart="8dp"
+                android:text="Starred"
+                android:textSize="10sp"
+                android:textColor="#CCCCCC"
+                app:strokeColor="#331118"
+                app:backgroundTint="#160306" />
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/chipPermissions"
+                style="@style/Widget.Material3.Button.OutlinedButton"
+                android:layout_width="wrap_content"
+                android:layout_height="36dp"
+                android:layout_marginStart="8dp"
+                android:text="Needs Perm"
+                android:textSize="10sp"
+                android:textColor="#CCCCCC"
+                app:strokeColor="#331118"
+                app:backgroundTint="#160306" />
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/chipHighRisk"
+                style="@style/Widget.Material3.Button.OutlinedButton"
+                android:layout_width="wrap_content"
+                android:layout_height="36dp"
+                android:layout_marginStart="8dp"
+                android:text="High Risk"
+                android:textSize="10sp"
+                android:textColor="#CCCCCC"
+                app:strokeColor="#331118"
+                app:backgroundTint="#160306" />
+        </LinearLayout>
+    </HorizontalScrollView>
+
+    <!-- Main List/Grid Section Title -->
+    <TextView
+        android:id="@+id/tvSectionHeader"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingHorizontal="16dp"
+        android:paddingBottom="6dp"
+        android:text="25 CATEGORIES DIRECTORY"
+        android:textColor="#00E5FF"
+        android:textSize="11sp"
+        android:textStyle="bold"
+        android:fontFamily="monospace" />
+
+    <!-- RecyclerView for Categories or Feature Rows -->
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/rvFeatures"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:paddingHorizontal="12dp"
+        android:clipToPadding="false" />
+
+</LinearLayout>

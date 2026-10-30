@@ -1,0 +1,121 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:background="@drawable/bg_jarvis_dialog"
+    android:padding="20dp">
+
+    <!-- Header ID & Title -->
+    <TextView
+        android:id="@+id/tvDialogTitle"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="#feat_001 • Feature Title"
+        android:textColor="#00E5FF"
+        android:textSize="18sp"
+        android:textStyle="bold"
+        android:lineSpacingExtra="2dp" />
+
+    <!-- Divider -->
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:layout_marginTop="12dp"
+        android:layout_marginBottom="12dp"
+        android:background="#3300E5FF" />
+
+    <!-- Meta Information -->
+    <TextView
+        android:id="@+id/tvCategory"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Category: Workflow Orchestration"
+        android:textColor="#E2E8F0"
+        android:textSize="13sp"
+        android:paddingBottom="4dp" />
+
+    <TextView
+        android:id="@+id/tvRiskLevel"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Risk Level: MEDIUM"
+        android:textColor="#CBD5E1"
+        android:textSize="13sp"
+        android:paddingBottom="4dp" />
+
+    <TextView
+        android:id="@+id/tvPermission"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Required Permission: READ_CALENDAR"
+        android:textColor="#94A3B8"
+        android:textSize="13sp"
+        android:paddingBottom="4dp" />
+
+    <TextView
+        android:id="@+id/tvStatus"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Status: PERMITTED / READY"
+        android:textColor="#10B981"
+        android:textSize="13sp"
+        android:textStyle="bold"
+        android:paddingBottom="12dp" />
+
+    <!-- Description Label -->
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="DESCRIPTION:"
+        android:textColor="#00E5FF"
+        android:textSize="12sp"
+        android:textStyle="bold"
+        android:paddingBottom="4dp" />
+
+    <!-- Description Text Container -->
+    <TextView
+        android:id="@+id/tvDescription"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Feature description goes here..."
+        android:textColor="#F8FAFC"
+        android:textSize="14sp"
+        android:lineSpacingExtra="4dp"
+        android:background="#1E293B"
+        android:padding="12dp" />
+
+    <!-- Actions Container -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:gravity="end"
+        android:layout_marginTop="16dp">
+
+        <Button
+            android:id="@+id/btnDryRun"
+            style="@style/Widget.Material3.Button.TextButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Dry-Run Test"
+            android:textColor="#38BDF8" />
+
+        <Button
+            android:id="@+id/btnClose"
+            style="@style/Widget.Material3.Button.TextButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Close"
+            android:textColor="#94A3B8" />
+
+        <Button
+            android:id="@+id/btnExecute"
+            style="@style/Widget.Material3.Button.TextButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Execute Action"
+            android:textColor="#00E5FF"
+            android:textStyle="bold" />
+    </LinearLayout>
+</LinearLayout>

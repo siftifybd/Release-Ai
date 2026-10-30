@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/cardProfileRoot"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginBottom="12dp"
+    android:background="@drawable/bg_jarvis_action_card"
+    android:orientation="vertical"
+    android:padding="16dp"
+    android:clickable="true"
+    android:focusable="true">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:gravity="center_vertical">
+
+        <TextView
+            android:id="@+id/tvProfileEmoji"
+            android:layout_width="32dp"
+            android:layout_height="32dp"
+            android:gravity="center"
+            android:text="⚡"
+            android:textSize="20sp" />
+
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:layout_marginStart="10dp"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/tvProfileTitle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Standard Stark Core"
+                android:textColor="?attr/themeTextPrimary"
+                android:textSize="15sp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/tvProfileBanglaTitle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="স্ট্যান্ডার্ড স্টারক কোর"
+                android:textColor="?attr/themeAccent"
+                android:textSize="12sp"
+                android:fontFamily="sans-serif-medium" />
+        </LinearLayout>
+
+        <TextView
+            android:id="@+id/tvProfileActiveBadge"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@drawable/bg_jarvis_status_badge_green"
+            android:paddingHorizontal="10dp"
+            android:paddingVertical="4dp"
+            android:text="ACTIVE"
+            android:textColor="#FFFFFF"
+            android:textSize="10sp"
+            android:textStyle="bold"
+            android:letterSpacing="0.08"
+            android:fontFamily="monospace"
+            android:visibility="gone" />
+    </LinearLayout>
+
+    <TextView
+        android:id="@+id/tvProfileDesc"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:text="Full cloud AI cognition and visual HUD reactivity."
+        android:textColor="?attr/themeTextMuted"
+        android:textSize="12sp" />
+
+</LinearLayout>

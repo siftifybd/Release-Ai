@@ -1,0 +1,14 @@
+{
+  "name": "jarvis-nexus-relay",
+  "version": "1.0.0",
+  "description": "JARVIS NEXUS Production WebSocket Relay Server for Remote Device Management",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js",
+    "dev": "nodemon server.js"
+  },
+  "dependencies": {
+    "ws": "^8.18.0",
+    "uuid": "^9.0.1"
+  }
+}
